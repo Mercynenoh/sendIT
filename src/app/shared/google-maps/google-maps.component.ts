@@ -10,6 +10,7 @@ export class GoogleMapsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
   display:any
   center: google.maps.LatLngLiteral = {
@@ -30,11 +31,13 @@ markerPositions: google.maps.LatLngLiteral[] = [
   {
     lat: -0.42013,
     lng: 36.94759
+  },
+  {
+    lat: 1.292066,
+    lng: 36.821946
   }
 ];
-// addMarker(event: google.maps.MapMouseEvent) {
-//     if (event.latLng != null) this.markerPositions.push(event.latLng.toJSON());
-// }
+
 @HostListener('window:load')
   onLoad() {
 

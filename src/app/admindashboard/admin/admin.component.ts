@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { parcel } from 'src/app/Interfaces/parces';
@@ -26,8 +27,10 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['admin/addnew'])
   }
   showall(){
-    this.service.showParcel().subscribe(result=>{
-      this.parcels=result
-    })
+   this.service.showParcel().subscribe(data=>{
+    this.parcels=data
+    console.log(data);
+
+   })
   }
 }

@@ -1,46 +1,73 @@
 <h3 class="text-black text-center">Request Form</h3>
-<form class="main m-4">
+<form class="main m-4" [formGroup]="addForm" (ngSubmit)="addnewParcel()">
   <div class="left">
+    <div>
+      <label class="form-label" for="form8Example1">Delivery Adress</label>
+      <input type="text" id="form8Example1" class="form-control" formControlName="Adress"/>
+      <p *ngIf="!addForm.get('Adress')!.valid && addForm.get('Adress')!.touched">
+        Input required
+       </p>
+    </div>
   <div>
     <label class="form-label" for="form8Example1">Sender email</label>
-    <input type="email" id="form8Example1" class="form-control "/>
+    <input type="email" id="form8Example1" class="form-control" formControlName="Senderemail"/>
+    <p *ngIf="!addForm.get('Senderemail')!.valid && addForm.get('Senderemail')!.touched">
+     Input required
+    </p>
   </div>
   <div>
     <label class="form-label" for="form8Example1">Recipient email</label>
-    <input type="email" id="form8Example1" class="form-control"/>
+    <input type="email" id="form8Example1" class="form-control" formControlName="Receipientemail"/>
+    <p *ngIf="!addForm.get('Receipientemail')!.valid && addForm.get('Receipientemail')!.touched">
+      Input required
+     </p>
   </div>
   <div>
     <label class="form-label" for="form8Example1">Parcel Name</label>
-    <input type="text" id="form8Example1" class="form-control"/>
+    <input type="text" id="form8Example1" class="form-control" formControlName="Parcelname"/>
+    <p *ngIf="!addForm.get('Parcelname')!.valid && addForm.get('Parcelname')!.touched">
+      Input required
+     </p>
   </div>
   <div>
-    <label class="form-label" for="form8Example1">Parcel Details</label>
-    <input type="text" id="form8Example1" class="form-control"/>
-  </div>
-  <div>
-    <label class="form-label" for="form8Example1">Delivery Adress</label>
-    <input type="text" id="form8Example1" class="form-control"/>
+    <label class="form-label" for="form8Example1">Status</label>
+    <input type="text" id="form8Example1" class="form-control" formControlName="Status"/>
+    <p *ngIf="!addForm.get('Status')!.valid && addForm.get('Status')!.touched">
+      Input required
+     </p>
   </div>
   </div>
   <div class="right">
     <div>
       <label class="form-label" for="form8Example1">Weight</label>
-      <input type="text" id="form8Example1" class="form-control"/>
+      <input type="text" id="form8Example1" class="form-control" formControlName="Weight"/>
+      <p *ngIf="!addForm.get('Weight')!.valid && addForm.get('Weight')!.touched">
+        Input required
+       </p>
     </div>
     <div>
       <label class="form-label" for="form8Example1">Date</label>
-      <input type="date" id="form8Example1" class="form-control"/>
+      <input type="date" id="form8Example1" class="form-control" formControlName="Date"/>
+      <p *ngIf="!addForm.get('Date')!.valid && addForm.get('Date')!.touched">
+        Input required
+       </p>
     </div>
     <div>
       <label class="form-label" for="form8Example1">Truck No.</label>
-      <input type="text" id="form8Example1" class="form-control"/>
+      <input type="text" id="form8Example1" class="form-control" formControlName="TruckNo"/>
+      <p *ngIf="!addForm.get('TruckNo')!.valid && addForm.get('TruckNo')!.touched">
+        Input required
+       </p>
     </div>
     <div>
       <label class="form-label" for="form8Example1">Tracking No.</label>
-      <input type="text" id="form8Example1" class="form-control"/>
+      <input type="text" id="form8Example1" class="form-control" formControlName="Tracking"/>
+      <p *ngIf="!addForm.get('Tracking')!.valid && addForm.get('Tracking')!.touched">
+        Input required
+       </p>
     </div>
     <div>
-    <button class="btn m-3" type="submit" (click)="onsubmit()">Submit</button>
+    <button class="btn m-3" type="submit" type="submit">Submit</button>
     </div>
   </div>
 

@@ -5,6 +5,7 @@ import { AdminDetailsComponent } from './admin-details/admin-details.component';
 import { NewparcelComponent } from './newparcel/newparcel.component';
 import { AdminRoutingModule } from './admin-routing/admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdmindashboardModule { }

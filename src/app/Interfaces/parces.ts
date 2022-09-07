@@ -1,12 +1,11 @@
 export interface parcel {
+  Adress:string
+  Tracking:number
+  Parcelname:string
+  TruckNo:string
+  Weight:string
+  Status:string
+  Date:string
   Senderemail:string
   Receipientemail:string
-  Parcelname:string
-  Details:string
-  Adress:string
-  Weight:string
-  Date:string
-  TruckNo:string
-  Tracking:number
-  Status:string
 }

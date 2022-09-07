@@ -54,6 +54,52 @@
       "Date": "5/8/2022",
       "Senderemail": "mercy@gmail.com",
       "Receipientemail": "mercy@gmail.com"
+    },
+    {
+      "id": 7,
+      "Adress": "Naivasha",
+      "Tracking": "345670993",
+      "Parcelname": "Confidential Documents",
+      "TruckNo": "KDD 231Y",
+      "Weight": "200g",
+      "Status": "Pending",
+      "Date": "5/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com"
+    },
+    {
+      "id": 15,
+      "Adress": "Naivasha",
+      "Tracking": "345670993",
+      "Parcelname": "Confidential Documents",
+      "TruckNo": "KDD 231Y",
+      "Weight": "200g",
+      "Status": "Pending",
+      "Date": "5/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com"
+    },
+    {
+      "Adress": "NYERI",
+      "Senderemail": "hjk@gmail.com",
+      "Receipientemail": "hjk@gmail.com",
+      "Parcelname": "hj",
+      "Weight": "nbnm",
+      "Status": "Pending",
+      "Date": "2022-09-06",
+      "TruckNo": "bjhhkj",
+      "Tracking": "8787",
+      "id": 16
     }
-  ]
+  ],
+  "signup": [
+    {
+      "first": "Mercy",
+      "last": "Chep",
+      "email": "mercy@gmail.com",
+      "password": "mercy12!",
+      "id": 1
+    }
+  ],
+  "login": []
 }

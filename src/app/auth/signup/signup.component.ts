@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,13 +10,14 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   addForms!: FormGroup;
-  constructor(private router:Router, private fb:FormBuilder) { }
+  regSuccess =true
+  constructor(private router:Router, private fb:FormBuilder, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.addForms = this.fb.group({
       first:[null,[Validators.required]],
       last:[null,[Validators.required]],
-      email: [null,[Validators.required,Validators.pattern('^[A-Za-z0-9._%+-]+@$'),]],
+      email: [null,[Validators.required]],
       password: [null,[Validators.required,this.checkPassword]],
     });
   }
@@ -29,6 +31,19 @@ export class SignupComponent implements OnInit {
   onlogin(){
   this.router.navigate(['login'])
 }
+addUser() {
+  if(this.addForms.valid){
+  this.auth.registerUser(this.addForms.value).subscribe(response=>{
+    this.regSuccess = true
+    console.log(response);
+
+    if (this.regSuccess){
+     this.router.navigate(['auth/login'])
+    }
+  })
+}else{
+  this.regSuccess=false
+}
   }
 
-
+}

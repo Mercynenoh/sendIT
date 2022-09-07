@@ -18,5 +18,9 @@ this.router.navigate(['auth/signup'])
   onlogin(){
     this.router.navigate(['auth/login'])
   }
+  onlogout(){
+    localStorage.clear()
+    this.router.navigate([''])
+  }
 
 }
