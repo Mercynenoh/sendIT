@@ -18,26 +18,15 @@
       <th>Date</th>
       <th>Details</th>
     </tr>
-      <tr>
-        <td>Nairobi</td>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td>KDD 211X</td>
-        <td>500g</td>
-        <td>Pending</td>
-        <td>5/10/2022</td>
+      <tr *ngFor="let parcel of parcels">
+        <td>{{parcel.Adress}}</td>
+        <td>{{parcel.Tracking}}</td>
+        <td>{{parcel.Parcelname}}</td>
+        <td>{{parcel.TruckNo}}</td>
+        <td>{{parcel.Weight}}</td>
+        <td>{{parcel.Status}}</td>
+        <td>{{parcel.Date}}</td>
         <td><button class="button" (click)="onview()">View</button></td>
-      </tr>
-      <tr>
-        <td>Nairobi</td>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td>KDD 211X</td>
-        <td>500g</td>
-        <td>Pending</td>
-        <td>5/10/2022</td>
-        <td><button class="button" (click)="onview()">View</button></td>
-      </tr>
     </table>
   </div>
 </div>

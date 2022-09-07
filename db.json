@@ -1,0 +1,59 @@
+{
+  "Parcels": [
+    {
+      "Adress": "Nairobi",
+      "Tracking": "345688993",
+      "Parcelname": "Documents",
+      "TruckNo": "KBD 211Y",
+      "Weight": "500g",
+      "Status": "Pending",
+      "Date": "5/10/2020",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "faith@gmail.com"
+    },
+    {
+      "Adress": "Eldoret",
+      "Tracking": "345670993",
+      "Parcelname": "Letters",
+      "TruckNo": "KDD 231Y",
+      "Weight": "200g",
+      "Status": "Pending",
+      "Date": "5/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "new@gmail.com"
+    },
+    {
+      "Adress": "Moyale",
+      "Tracking": "345670993",
+      "Parcelname": "Gifts",
+      "TruckNo": "KDD 231Y",
+      "Weight": "600g",
+      "Status": "Arrived",
+      "Date": "7/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com"
+    },
+    {
+      "Adress": "Naivasha",
+      "Tracking": "345670993",
+      "Parcelname": "Confidential Documents",
+      "TruckNo": "KDD 231Y",
+      "Weight": "200g",
+      "Status": "Pending",
+      "Date": "5/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com"
+    },
+    {
+      "Adress": "Kisumu",
+      "Tracking": "345670993",
+      "Parcelname": "Documents",
+      "TruckNo": "KDD 231Y",
+      "Weight": "700g",
+      "Status": "Pending",
+      "Date": "5/8/2022",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com"
+    }
+  ]
+}

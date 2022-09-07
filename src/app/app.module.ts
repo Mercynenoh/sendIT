@@ -9,6 +9,7 @@ import { HomepageRoutingModule } from './homepage/homepage-routing/homepage-rout
 import { SharedModule } from './shared/shared.module';
 import { UserRouterModule } from './userdashboard/user-router/user-router.module';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GoogleMapsModule } from '@angular/google-maps'
     BrowserModule,
     SharedModule,
     GoogleMapsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

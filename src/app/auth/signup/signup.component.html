@@ -16,22 +16,40 @@
     </div>
     <div class="right">
       <h3 class="text-black m-3">SignUp Here:</h3>
-      <form>
-       <div>
+      <form [formGroup]="addForms">
+
         <label class="form-label text-black" for="registerName">*First Name:</label>
-        <input type="text" id="registerName" class="form-control "/>
+        <div class="all">
+        <input type="text" id="registerName" class="form-control" formControlName="first"/>
+          <p class="error" *ngIf="!addForms.get('first')!.valid && addForms.get('first')!.touched">
+            Input is required.
+          </p>
        </div>
-       <div>
+
         <label class="form-label text-black" for="registerName">*Last Name:</label>
-        <input type="text" id="registerName" class="form-control"/>
+        <div class="all">
+        <input type="text" id="registerName" class="form-control" formControlName="last"/>
+        <p class="error" *ngIf="!addForms.get('last')!.valid && addForms.get('last')!.touched">
+          Input is required.
+        </p>
        </div>
-       <div >
+
         <label class="form-label text-black" for="registerName">*Email:</label>
-        <input type="text" id="registerName" class="form-control"/>
-      </div>
-      <div >
+        <div class="all">
+        <input type="email" id="registerName" class="form-control" formControlName="email"/>
+        <p class="error" *ngIf="!addForms.get('email')!.valid && addForms.get('email')!.touched">
+          Input is required.
+        </p>
+        </div>
+
         <label class="form-label text-black" for="registerName">*Password:</label>
-        <input type="text" id="registerName" class="form-control"/>
+        <div class="">
+        <input type="text" id="registerName" class="form-control" formControlName="password"/>
+        <div *ngIf="!addForms.get('password')!.valid && addForms.get('password')!.touched">
+          <p class="error" *ngIf="addForms.get('password')!.errors!['special']">
+            * Strong password required.
+          </p>
+          </div>
       </div>
       <button class="btn btn-dark m-1" type="submit">Register</button>
       </form>
