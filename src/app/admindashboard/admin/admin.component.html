@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="left">
+<div class="buttons ">
+  <button class="btn m-4" (click)="onCreate()">Create request</button>
+</div>
+  </div>
+  <div class="right">
+    <input placeholder="Search by name" class="m-2">
+    <h3 class="text-black"> All Parcels</h3>
+    <table>
+      <tr>
+      <th>Destination</th>
+      <th>Tracking No.</th>
+      <th>Parcel Name</th>
+      <th>Truck No.</th>
+      <th>Weight</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Details</th>
+    </tr>
+      <tr>
+        <td>Nairobi</td>
+        <td>65774905</td>
+        <td>Certificates</td>
+        <td>KDD 211X</td>
+        <td>500g</td>
+        <td>Pending</td>
+        <td>5/10/2022</td>
+        <td><button class="button" (click)="onview()">View</button></td>
+      </tr>
+      <tr>
+        <td>Nairobi</td>
+        <td>65774905</td>
+        <td>Certificates</td>
+        <td>KDD 211X</td>
+        <td>500g</td>
+        <td>Pending</td>
+        <td>5/10/2022</td>
+        <td><button class="button" (click)="onview()">View</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

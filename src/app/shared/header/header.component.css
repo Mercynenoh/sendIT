@@ -1,0 +1,22 @@
+button{
+ margin-right: 10px;
+}
+.navbar{
+  background-color: black;
+  height:80px
+}
+a{
+  color: white;
+}
+.button{
+  background-color: #F68B1E;
+  color: white;
+  border-radius: 5px;
+  width: 70px;
+}
+em{
+  color: #F68B1E;
+}
+img{
+  margin-left: 40px;
+}

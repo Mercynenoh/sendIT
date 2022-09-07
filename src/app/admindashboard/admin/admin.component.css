@@ -1,0 +1,38 @@
+.main{
+  display:flex;
+  gap: 5%;
+}
+.left{
+  width:200px;
+  height:100vh;
+  background-color: #F68B1E;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 65vw;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(252, 229, 186);
+}
+.button{
+ background-color:#F68B1E;
+ height: 20px;
+ width: 55px;
+ font-size: 10px;
+ border: none;
+ border-radius: 5px;
+}
+.btn{
+  background-color: black;
+  color: white;
+}
+

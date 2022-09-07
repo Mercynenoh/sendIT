@@ -1,0 +1,21 @@
+.main{
+  display: flex;
+  justify-content: center;
+  gap:10%;
+}
+.form{
+  display: flex;
+}
+.form-label{
+  color: black;
+}
+button{
+  background-color: #F68B1E;
+  color: black;
+  text-transform: lowercase;
+}
+.form-control{
+  background-color: blanchedalmond;
+  border: none;
+  border-radius: 8px;
+}

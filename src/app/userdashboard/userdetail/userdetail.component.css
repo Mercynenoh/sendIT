@@ -1,0 +1,38 @@
+.main{
+  justify-content: space-between;
+  display: flex;
+}
+.card{
+height: 300px;
+width: 250px;
+background-color: white;
+box-shadow: 2px 2px 2px 2px black;
+margin-top: 5%;
+margin-left: 5%;
+}
+h3{
+  font-size: 15px;
+  margin: 5px;
+}
+span{
+  color: rgb(29, 28, 28);
+ font-style: italic;
+ font-weight: 200;
+}
+.button{
+  background-color: #F68B1E;
+  height: 20px;
+  width: 65px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+}
+h4{
+  font-weight: 700;
+  color: #F68B1E;
+}
+.btn{
+  background-color: black;
+  color:#F68B1E ;
+}
