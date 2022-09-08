@@ -4,10 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from '../admin/admin.component';
 import { AdminDetailsComponent } from '../admin-details/admin-details.component';
 import { NewparcelComponent } from '../newparcel/newparcel.component';
+import { AuthGuard } from 'src/app/Guards/auth.guard';
 
 
 const routes: Routes = [
-  {path:'', children:[
+  {path:'', canActivateChild:[AuthGuard],children:[
     {path:'', component:AdminComponent},
     {path:'admindetails', component:AdminDetailsComponent},
     {path:'addnew', component:NewparcelComponent}

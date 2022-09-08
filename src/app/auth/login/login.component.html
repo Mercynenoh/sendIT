@@ -7,12 +7,13 @@
       <h3 class="text-black m-3">Login Here</h3>
       <form #form="ngForm" (ngSubmit)="onSubmit()">
        <div>
+        <p *ngIf="logged" class="p">Empty Fields!!</p>
         <label class="form-label" for="registerName">*Email:</label>
         <input type="text" ngModel name="email" class="form-control"/>
       </div>
       <div >
         <label class="form-label" for="registerName">*Password:</label>
-        <input type="password" id="registerName" ngModel name="email" class="form-control"/>
+        <input type="password" id="registerName" ngModel name="password" class="form-control"/>
       </div>
       <button class="btn btn-dark m-4" type="submit">Login</button>
       </form>

@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('form') form!:NgForm
+  logged=false
   constructor( private router:Router, private service:AuthService) {
     localStorage.setItem("email","mercy@gmail.com");
     localStorage.setItem("password","admin12!");
@@ -18,25 +20,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 onsignup(){
-  this.router.navigate(['signup'])
+  this.router.navigate(['auth/signup'])
 }
 onSubmit() {
-  if(this.form.valid){
+  if(this.form.value.email!==''&& this.form.value.password!==''){
     let token =  localStorage.setItem("token","6o5nuVTiNpVVUkiFG=44tb9PplT0JHtvDAJOKwMhKZ2zR/uazkL29VaXi4Nn1mxZ5L4ZU6qVkxoGTVLi7PYdtoss");
     console.log(token);
     let email = localStorage.getItem("email");
     let password = localStorage.getItem("password");
-    if(email==='mercy@gmail.com'){
-    this.router.navigate(['admin'])
-    }if(email!=='mercy@gmail.com'){
+    if(this.form.value.email===email && this.form.value.password===password){
+      this.router.navigate(['admin'])
+    }else{
       this.router.navigate(['user'])
     }
-    else{
 
-    }
-  // this.service.loginUser(this.form.value).subscribe(response=>{
-  // }
-
+  }else{
+    this.logged=true
   }
 }
 }

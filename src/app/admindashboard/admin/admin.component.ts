@@ -1,8 +1,10 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { parcel } from 'src/app/Interfaces/parces';
 import { ParcelsService } from 'src/app/Services/parcels.service';
+import { getParcels, ParcelState } from './Redux/Reducers/ParcelReducer';
+import { Store } from '@ngrx/store';
+import * as Actions from '././Redux/Actions/parcelAction'
 
 
 @Component({
@@ -12,12 +14,13 @@ import { ParcelsService } from 'src/app/Services/parcels.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor( private router:Router, private service:ParcelsService) { }
-  parcels:parcel[]=[]
+  constructor( private router:Router, private service:ParcelsService, private store: Store<ParcelState>) { }
+  parcels$=this.store.select(getParcels)
+  filter=''
   ngOnInit(): void {
     this.showall()
   }
-  onview(){
+  onview(id:number=0){
     this.router.navigate(['admin/admindetails'])
   }
   onAll(){
@@ -27,10 +30,10 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['admin/addnew'])
   }
   showall(){
-   this.service.showParcel().subscribe(data=>{
-    this.parcels=data
-    console.log(data);
+    this.store.dispatch(Actions.LoadParcels())
+    // this.service.showParcel().subscribe(result=>{
+    //   this.parcels=result
 
-   })
+    // }) 
   }
 }

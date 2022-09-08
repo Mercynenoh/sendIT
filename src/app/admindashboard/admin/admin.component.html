@@ -5,9 +5,9 @@
 </div>
   </div>
   <div class="right">
-    <input placeholder="Search by name" class="m-2">
+    <input placeholder="Search by name" class="m-2" [(ngModel)]="filter">
     <h3 class="text-black"> All Parcels</h3>
-    <table>
+    <table *ngIf="parcels$| async  as parcels">
       <tr>
       <th>Destination</th>
       <th>Tracking No.</th>
@@ -18,7 +18,7 @@
       <th>Date</th>
       <th>Details</th>
     </tr>
-      <tr *ngFor="let parcel of parcels">
+      <tr *ngFor="let parcel of parcels |search:filter">
         <td>{{parcel.Adress}}</td>
         <td>{{parcel.Tracking}}</td>
         <td>{{parcel.Parcelname}}</td>
@@ -26,7 +26,7 @@
         <td>{{parcel.Weight}}</td>
         <td>{{parcel.Status}}</td>
         <td>{{parcel.Date}}</td>
-        <td><button class="button" (click)="onview()">View</button></td>
+        <td><button class="button" (click)="onview(parcel.id)">View</button></td>
     </table>
   </div>
 </div>

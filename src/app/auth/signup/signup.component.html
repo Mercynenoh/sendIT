@@ -15,8 +15,8 @@
 
     </div>
     <div class="right">
-      <h3 class="text-black m-3">SignUp Here:</h3>
       <form [formGroup]="addForms" (ngSubmit)="addUser()">
+         <h3 class="text-black m-3">SignUp Here:</h3>
         <label>Firstname</label>
         <input  formControlName="first" class="form-control"/>
         <div *ngIf="!addForms.get('first')!.valid && addForms.get('first')!.touched">

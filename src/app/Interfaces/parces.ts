@@ -7,5 +7,6 @@ export interface parcel {
   Status:string
   Date:string
   Senderemail:string
-  Receipientemail:string
+  Receipientemail:string,
+  id:number
 }

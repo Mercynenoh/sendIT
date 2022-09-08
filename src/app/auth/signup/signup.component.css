@@ -13,9 +13,7 @@ img{
 }
 .signup{
   position: absolute;
-  height:420px;
-  width:600px;
-  background-color: white;
+  height:450px;
   bottom: -40%;
   left: 20%;
   right: 0;
@@ -23,15 +21,18 @@ img{
   display: flex;
 }
 .left{
-  height:420px;
-  width:300px;
+ width:300px;
   text-align: center;
+  background-color: white;
 }
 .right{
-  height:420px;
+  /* height:420px; */
   width:300px;
   background-color: #F68B1E;
-  /* text-align: center; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
 }
 h1{
   padding-top: 5%;
@@ -40,6 +41,7 @@ input{
   width: 200px;
   margin-left: 2%;
   background-color: bisque;
+
 
 }
 .paragraph{
@@ -61,7 +63,7 @@ label{
 .error{
   color: rgb(250, 8, 8);
   font-size: 12px;
-  border: 0;
+  /* border-left: 2px solid red; */
 }
 .all{
   display: flex;
