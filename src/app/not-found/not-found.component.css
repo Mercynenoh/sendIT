@@ -1,0 +1,85 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:url('../../assets/bg.png') no-repeat center center #1d1d1d;
+	color:#eee;
+	font-family:Corbel,Arial,Helvetica,sans-serif;
+	font-size:13px;
+  /* height:63vh */
+}
+
+#rocket{
+	width:255px;
+	height:63vh;
+	background:url('../../assets/rocket.png') no-repeat;
+	margin:140px auto 50px;
+  margin-top:0;
+	position:relative;
+  transition: tranform 0.5s;
+}
+
+
+.steam1,
+.steam2{
+	position:absolute;
+	bottom:78px;
+	left:50px;
+	width:80px;
+	height:80px;
+	background:url('../../assets/steam.png') no-repeat;
+	opacity:0.8;
+}
+
+.steam2{
+	background-position:left bottom;
+}
+
+.hgroup{
+	display:block;
+	margin:0 auto;
+	width:850px;
+	font-family:'Century Gothic',Calibri,'Myriad Pro',Arial,Helvetica,sans-serif;
+	text-align:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+	color:#76D7FB;
+	font-size:60px;
+	text-shadow:3px 3px 0 #3D606D;
+	white-space:nowrap;
+
+}
+
+h2{
+	color:#9FE3FC;
+	font-size:18px;
+	font-weight:normal;
+	padding:25px 0;
+}
+
+/* Only Needed For The Demo Page */
+
+p.createdBy{
+	font-size:15px;
+	font-weight:normal;
+	margin:50px;
+	text-align:center;
+	text-shadow:none;
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	border-bottom:1px dotted #97cae6;
+	color:#97cae6;
+}
+
+a:hover{
+	border-bottom:1px dashed transparent;
+}

@@ -19,6 +19,7 @@
       <th class="new">Weight</th>
       <th class="new">Status</th>
       <th class="new">Date</th>
+      <th class="new">Price</th>
       <th>Details</th>
       <th></th>
     </tr>
@@ -33,6 +34,7 @@
         <td class="new">{{parcel.Weight}}g</td>
         <td class="new">{{parcel.Status}}</td>
         <td class="new">{{parcel.Date}}</td>
+        <td class="new">{{parcel.Price | currency:'Ksh.'}}</td>
         <td><button class="button" (click)="onview(parcel.id)">View</button></td>
         <td><button class="button"(click)="onDelete(parcel.id)" >Delete</button></td>
     </table>

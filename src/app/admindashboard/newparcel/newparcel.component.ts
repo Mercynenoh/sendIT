@@ -26,17 +26,21 @@ export class NewparcelComponent implements OnInit {
     this.onParcel()
     this.addForm = this.fb.group({
       Adress: [null,[Validators.required]],
-      Senderemail:[null,[Validators.required]],
-      Receipientemail:[null,[Validators.required]],
+      Senderemail:[null,[Validators.required, Validators.email]],
+      Receipientemail:[null,[Validators.required, Validators.email]],
       Parcelname: [null,[Validators.required]],
       Weight: [null,[Validators.required]],
       Status: [null,[Validators.required]],
       Date: [null,[Validators.required]],
       TruckNo: [null,[Validators.required]],
       Tracking: [null,[Validators.required]],
+      Price: [null,[Validators.required]],
 
     });
+    this.addForm.get('Weight')!.valueChanges.subscribe(res=>{
 
+      this.addForm.get('Price')!.setValue(res*100)
+    });
   }
 
 

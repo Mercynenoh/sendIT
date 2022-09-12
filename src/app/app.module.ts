@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function playerFactory(): any {
   return player
@@ -31,6 +32,7 @@ export function playerFactory(): any {
     GoogleMapsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

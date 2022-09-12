@@ -12,6 +12,7 @@
       "lng": 36.821946,
       "TruckNo": "KDD 211Y",
       "Tracking": "378293090",
+      "Price": 50,
       "id": 2
     },
     {
@@ -26,6 +27,7 @@
       "lng": 36.94759,
       "TruckNo": "KDD 211Y",
       "Tracking": "45535985",
+      "Price": 500,
       "id": 3
     },
     {
@@ -40,6 +42,7 @@
       "lng": 36.94759,
       "TruckNo": "KDD 211Y",
       "Tracking": "43857921",
+      "Price": 300,
       "id": 4
     },
     {
@@ -54,7 +57,21 @@
       "lng": 36.94759,
       "TruckNo": "KDD 211Y",
       "Tracking": "77888965",
+      "Price": 100,
       "id": 5
+    },
+    {
+      "Adress": "Kisumu",
+      "Senderemail": "mercy@gmail.com",
+      "Receipientemail": "mercy@gmail.com",
+      "Parcelname": "Docs",
+      "Weight": 300,
+      "Status": "Pending",
+      "Date": "2022-09-13",
+      "TruckNo": "KDD 211Y",
+      "Tracking": "321434656",
+      "Price": 200,
+      "id": 6
     }
   ],
   "signup": [

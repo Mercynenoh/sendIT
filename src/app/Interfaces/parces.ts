@@ -11,5 +11,6 @@ export interface parcel {
   id:number
   lat:any
   lng:any
+   Price:number
 }
 
