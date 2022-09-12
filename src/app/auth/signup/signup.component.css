@@ -13,7 +13,7 @@ img{
 }
 .signup{
   position: absolute;
-  height:450px;
+  height:400px;
   bottom: -40%;
   left: 20%;
   right: 0;
@@ -21,7 +21,7 @@ img{
   display: flex;
 }
 .left{
- width:300px;
+  width:300px;
   text-align: center;
   background-color: white;
 }
@@ -43,6 +43,13 @@ input{
   background-color: bisque;
 
 
+}
+
+input.ng-invalid.ng-touched{
+  border-left:5px solid red ;
+}
+input.ng-valid.ng-touched{
+  border-left:5px solid green ;
 }
 .paragraph{
   width: 200px;
@@ -67,5 +74,16 @@ label{
 }
 .all{
   display: flex;
+}
+@media screen and (max-width: 500px){
+  .left{
+    display: none;
+  }
+  .signup{
+  height:400px;
+  width:300px;
+  left: 10%;
+  }
+
 }
 

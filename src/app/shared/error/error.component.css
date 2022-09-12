@@ -1,0 +1,21 @@
+.error{
+  background-color: white;
+  display: flex;
+  height: 80px;
+  width:300px;
+  position: absolute;
+  bottom: 90%;
+  left: 40%;
+  right: 0;
+  gap: 10%;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+button{
+height: 25px;
+border: none;
+background-color: red;
+color: white;
+margin-top: 1%;
+}

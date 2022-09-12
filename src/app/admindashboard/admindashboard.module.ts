@@ -7,11 +7,12 @@ import { AdminRoutingModule } from './admin-routing/admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { getParcels, ParcelReducer } from './admin/Redux/Reducers/ParcelReducer';
+import { getParcels, ParcelReducer } from './Redux/Reducers/ParcelReducers';
 import { AppModule } from '../app.module';
 import { SearchPipe } from './Pipes/search.pipe';
 import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
-import { ParcelEffectsService } from './admin/Redux/Parcels/parcelEffects';
+import { ParcelEffectsService } from './Redux/Effects/ParcelEffects';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -29,10 +30,8 @@ import { ParcelEffectsService } from './admin/Redux/Parcels/parcelEffects';
     ReactiveFormsModule,
     FormsModule,
     StoreModule.forFeature('parcels', ParcelReducer),
-    EffectsModule.forFeature([ParcelEffectsService])
-    // StoreModule.forRoot({'parcels', ParcelReducer}),
-    //
-    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    EffectsModule.forFeature([ParcelEffectsService]),
+    NgxPaginationModule
   ]
 })
 export class AdmindashboardModule { }

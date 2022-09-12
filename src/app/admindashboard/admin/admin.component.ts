@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { parcel } from 'src/app/Interfaces/parces';
 import { ParcelsService } from 'src/app/Services/parcels.service';
-import { getParcels, ParcelState } from './Redux/Reducers/ParcelReducer';
+import { getParcels, ParcelState } from '../Redux/Reducers/ParcelReducers';
 import { Store } from '@ngrx/store';
-import * as Actions from '././Redux/Actions/parcelAction'
+import * as Actions from '../Redux/Actions/ParcelActions'
 
 
 @Component({
@@ -14,14 +14,18 @@ import * as Actions from '././Redux/Actions/parcelAction'
 })
 export class AdminComponent implements OnInit {
 
-  constructor( private router:Router, private service:ParcelsService, private store: Store<ParcelState>) { }
+  constructor( private router:Router,private route:ActivatedRoute, private service:ParcelsService, private store: Store<ParcelState>) { }
   parcels$=this.store.select(getParcels)
   filter=''
+  p:number=1
   ngOnInit(): void {
     this.showall()
   }
   onview(id:number=0){
-    this.router.navigate(['admin/admindetails'])
+    this.store.dispatch(Actions.ParcelId({id}))
+    console.log(id);
+
+    this.router.navigate([`/admin/admindetails/${id}`], {relativeTo:this.route})
   }
   onAll(){
     this.router.navigate(['admin'])
@@ -31,9 +35,11 @@ export class AdminComponent implements OnInit {
   }
   showall(){
     this.store.dispatch(Actions.LoadParcels())
-    // this.service.showParcel().subscribe(result=>{
-    //   this.parcels=result
-
-    // }) 
   }
+onDelete(id:number=0){
+  this.store.dispatch(Actions.DeleteParcel({id}))
+  this.store.dispatch(Actions.LoadParcels())
+}
+
+
 }

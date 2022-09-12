@@ -1,32 +1,23 @@
-<nav class="navbar navbar-expand-sm ">
-  <div class="container-fluid">
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <div class=" me-auto order-0">
-      <div class="logo topp" >
-        <img src="https://th.bing.com/th?q=Tiger+Silhouette+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.89&pid=InlineBlock&mkt=en-WW&cc=KE&setlang=en&adlt=moderate&t=1&mw=247" height="50px" width="50px" class="rounded-circle">
-    <p class="card-title " id="motto"><em>You ask, we deliver</em></p>
+<div class="top">
+  <div class="logo">
+    <div class="logo topp" >
+      <img src="https://th.bing.com/th?q=Tiger+Silhouette+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.89&pid=InlineBlock&mkt=en-WW&cc=KE&setlang=en&adlt=moderate&t=1&mw=247" height="50px" width="50px" class="rounded-circle">
+  <p class="card-title " id="motto"><em>You ask, we deliver</em></p>
+  </div>
+  </div>
+  <div class="middle">
+    <h6 (click)="onhome()" appCustom [color]="'gold'">Home</h6>
+  </div>
+  <div class="end">
+    <div class="all">
+      <button class="button " (click)="onsignup()" *ngIf="!auth.isLoggedIn()" > Signup</button>
+      <button class="button " (click)="onlogin()" *ngIf="!auth.isLoggedIn()"  > Login</button>
+      <button class="button " (click)="onlogout()" *ngIf="auth.isLoggedIn()" > Logout</button>
     </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <ul class="navbar-nav mx-auto ">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Services</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Contact Us</a>
-    </li>
-    </ul>
-    <div class="d-flex ms-auto order-5">
-      <button class="button " (click)="onsignup()"> Signup</button>
-      <button class="button " (click)="onlogin()"> Login</button>
-      <button class="button " (click)="onlogout()"> Logout</button>
-    </div>
+  </div>
+</div>
 
-  </div>
-  </div>
-</nav>
+
+
+
+

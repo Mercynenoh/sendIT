@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class LoginComponent implements OnInit {
   @ViewChild('form') form!:NgForm
   logged=false
+  error='Empty Fields!!!'
   constructor( private router:Router, private service:AuthService) {
     localStorage.setItem("email","mercy@gmail.com");
     localStorage.setItem("password","admin12!");
@@ -37,5 +38,8 @@ onSubmit() {
   }else{
     this.logged=true
   }
+}
+ onClose(){
+this.logged=false
 }
 }

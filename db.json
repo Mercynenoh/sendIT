@@ -1,107 +1,60 @@
 {
   "Parcels": [
     {
-      "Adress": "Nairobi",
-      "Tracking": "345688993",
-      "Parcelname": "Documents",
-      "TruckNo": "KBD 211Y",
-      "Weight": "500g",
-      "Status": "Pending",
-      "Date": "5/10/2020",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "faith@gmail.com"
-    },
-    {
-      "Adress": "Eldoret",
-      "Tracking": "345670993",
-      "Parcelname": "Letters",
-      "TruckNo": "KDD 231Y",
-      "Weight": "200g",
-      "Status": "Pending",
-      "Date": "5/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "new@gmail.com"
-    },
-    {
-      "Adress": "Moyale",
-      "Tracking": "345670993",
+      "Adress": "Kitale",
+      "Senderemail": "new@gmail.com",
+      "Receipientemail": "chep@gmail.com",
       "Parcelname": "Gifts",
-      "TruckNo": "KDD 231Y",
-      "Weight": "600g",
-      "Status": "Arrived",
-      "Date": "7/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "mercy@gmail.com"
-    },
-    {
-      "Adress": "Naivasha",
-      "Tracking": "345670993",
-      "Parcelname": "Confidential Documents",
-      "TruckNo": "KDD 231Y",
-      "Weight": "200g",
-      "Status": "Pending",
-      "Date": "5/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "mercy@gmail.com"
+      "Weight": 300,
+      "Status": "Delivered",
+      "Date": "2022-09-12",
+      "lat": 1.292066,
+      "lng": 36.821946,
+      "TruckNo": "KDD 211Y",
+      "Tracking": "378293090",
+      "id": 2
     },
     {
       "Adress": "Kisumu",
-      "Tracking": "345670993",
-      "Parcelname": "Documents",
-      "TruckNo": "KDD 231Y",
-      "Weight": "700g",
-      "Status": "Pending",
-      "Date": "5/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "mercy@gmail.com"
+      "Senderemail": "table@gmail.com",
+      "Receipientemail": "chep@gmail.com",
+      "Parcelname": "parcels",
+      "Weight": 600,
+      "Status": "Delivered",
+      "Date": "2022-09-12",
+      "lat": -0.42013,
+      "lng": 36.94759,
+      "TruckNo": "KDD 211Y",
+      "Tracking": "45535985",
+      "id": 3
     },
     {
-      "id": 7,
-      "Adress": "Naivasha",
-      "Tracking": "345670993",
-      "Parcelname": "Confidential Documents",
-      "TruckNo": "KDD 231Y",
-      "Weight": "200g",
-      "Status": "Pending",
-      "Date": "5/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "mercy@gmail.com"
+      "Adress": "Nairobi",
+      "Senderemail": "chair@gmail.com",
+      "Receipientemail": "chep@gmail.com",
+      "Parcelname": "Letters",
+      "Weight": 200,
+      "Status": "Delivered",
+      "Date": "2022-09-12",
+      "lat": -0.42013,
+      "lng": 36.94759,
+      "TruckNo": "KDD 211Y",
+      "Tracking": "43857921",
+      "id": 4
     },
     {
-      "id": 15,
-      "Adress": "Naivasha",
-      "Tracking": "345670993",
-      "Parcelname": "Confidential Documents",
-      "TruckNo": "KDD 231Y",
-      "Weight": "200g",
-      "Status": "Pending",
-      "Date": "5/8/2022",
-      "Senderemail": "mercy@gmail.com",
-      "Receipientemail": "mercy@gmail.com"
-    },
-    {
-      "Adress": "NYERI",
-      "Senderemail": "hjk@gmail.com",
-      "Receipientemail": "hjk@gmail.com",
-      "Parcelname": "hj",
-      "Weight": "nbnm",
-      "Status": "Pending",
-      "Date": "2022-09-06",
-      "TruckNo": "bjhhkj",
-      "Tracking": "8787",
-      "id": 16
-    },
-    {
-      "Adress": "dnbf",
-      "Senderemail": "dmsnfmds",
-      "Receipientemail": "dmn",
-      "Parcelname": "samdnsa",
-      "Weight": "u4837",
-      "Status": "dsamnd",
-      "Date": "2022-09-20",
-      "TruckNo": "435y5",
-      "Tracking": "5yey",
-      "id": 17
+      "Adress": "Nakuru",
+      "Senderemail": "laptop@gmail.com",
+      "Receipientemail": "chep@gmail.com",
+      "Parcelname": "books",
+      "Weight": 1200,
+      "Status": "Delivered",
+      "Date": "2022-09-12",
+      "lat": -0.42013,
+      "lng": 36.94759,
+      "TruckNo": "KDD 211Y",
+      "Tracking": "77888965",
+      "id": 5
     }
   ],
   "signup": [
@@ -113,256 +66,11 @@
       "id": 1
     },
     {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 2
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 3
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 4
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 5
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 6
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 7
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 8
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 9
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 10
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 11
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 12
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 13
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 14
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 15
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 16
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 17
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep",
-      "password": "chep12!",
-      "id": 18
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail",
-      "password": "chep12!",
-      "id": 19
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail",
-      "password": "chep12!",
-      "id": 20
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 21
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 22
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 23
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 24
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 25
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 26
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail.com",
-      "password": "chep12!",
-      "id": 27
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail.com",
-      "password": "chep12!",
-      "id": 28
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail.com",
-      "password": "chep12!",
-      "id": 29
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 30
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 31
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 32
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 33
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 34
-    },
-    {
-      "first": "chep",
-      "last": "chep",
-      "email": "chep@gmail.com",
-      "password": "chep12!",
-      "id": 35
-    },
-    {
-      "first": null,
-      "last": null,
-      "email": null,
-      "password": null,
-      "id": 36
-    },
-    {
-      "first": "fdgfd",
-      "last": "fddf",
-      "email": "ffd",
-      "password": "mercy12!",
-      "id": 37
+      "first": "new",
+      "last": "special",
+      "email": "special@gmail.com",
+      "password": "special12!",
+      "id": 1
     }
   ],
   "login": []

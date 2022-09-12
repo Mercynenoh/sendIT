@@ -19,32 +19,16 @@
          <h3 class="text-black m-3">SignUp Here:</h3>
         <label>Firstname</label>
         <input  formControlName="first" class="form-control"/>
-        <div *ngIf="!addForms.get('first')!.valid && addForms.get('first')!.touched">
-          <p class="error" *ngIf="addForms.get('first')!.errors!['required']">
-            *Firstname is required.
-          </p>
-        </div>
 
         <label>Lastname</label>
         <input  formControlName="last" class="form-control"/>
-        <div *ngIf="!addForms.get('last')!.valid && addForms.get('last')!.touched">
-          <p class="error" *ngIf="addForms.get('last')!.errors!['required']">
-            *Lastname is required.
-          </p>
-        </div>
+
         <label>Email</label>
         <input type="email" formControlName="email" class="form-control"/>
-        <div *ngIf="!addForms.get('email')!.valid && addForms.get('email')!.touched">
-          <p class="error" *ngIf="addForms.get('email')!.errors!['required']">
-            *email is required.
-          </p>
-        </div>
+
         <label>Password</label>
         <input formControlName="password" type="password" class="form-control"/>
         <div *ngIf="!addForms.get('password')!.valid && addForms.get('password')!.touched">
-          <p class="error" *ngIf="addForms.get('password')!.errors!['required']">
-            *password is required.
-          </p>
           <p class="error" *ngIf="addForms.get('password')!.errors!['special']">
             *special characters required.
           </p>

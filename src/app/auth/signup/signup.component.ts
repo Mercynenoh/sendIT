@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
     return !special? {special:true} :null
   }
   onlogin(){
-  this.router.navigate(['login'])
+  this.router.navigate(['auth/login'])
 }
 addUser() {
   if(this.addForms.valid){

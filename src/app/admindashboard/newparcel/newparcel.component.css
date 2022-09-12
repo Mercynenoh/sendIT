@@ -2,6 +2,13 @@
   display: flex;
   justify-content: center;
   gap:10%;
+
+}
+.mains{
+  height: 100vh;
+}
+.request{
+  margin-top: 5%;
 }
 .form{
   display: flex;
@@ -20,5 +27,12 @@ button{
   border-radius: 8px;
 }
 p{
-  color:red
+  color:red;
+  text-align: center;
+}
+input.ng-invalid.ng-touched{
+  border-left:5px solid red ;
+}
+input.ng-valid.ng-touched{
+  border-left:5px solid green ;
 }

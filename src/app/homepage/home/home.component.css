@@ -1,6 +1,8 @@
-.main{
+/* .main{
   flex-wrap: wrap;
-}
+  width: 100%;
+
+} */
 .top{
   display: flex;
   color: white;
@@ -15,6 +17,9 @@
   object-fit: cover;
   position: relative;
 
+}
+.all{
+  text-align: center;
 }
 img{
   opacity: 0.7;
@@ -46,6 +51,10 @@ h2{
   justify-content: center;
   gap:10%;
   margin-top: 2%;
+  /* flex-wrap: wrap; */
+}
+#send{
+  text-align: center;
 }
 .one,.two,.three{
   width: 250px;
@@ -99,7 +108,7 @@ h6{
 }
 .carousel-item{
   height:400px;
-  background-image: url('https://th.bing.com/th/id/OIP.TET_sxKOojhulGda9gSo5AHaEK?pid=ImgDet&rs=1');
+  background-image: url('https://th.bing.com/th/id/R.6978fca3b1c2344705996a3a0f6ecebf?rik=I%2fTAu8LpIcuJLg&riu=http%3a%2f%2f1.bp.blogspot.com%2f-6VpnMc4GUhs%2fUWHyyx4YL8I%2fAAAAAAAASGs%2fL4fWuPy7K8Y%2fs1600%2fblack%2bbackground%2b9.jpg&ehk=9latSN6fGjZLmyW3x7Njsx8FLlVbtU0BoL34OyUFOpg%3d&risl=&pid=ImgRaw&r=0');
   display: flex;
 }
 button{
@@ -108,11 +117,15 @@ button{
   width: 20px;
   align-items: center;
   margin-top: 25%;
+  position: absolute;
 }
 .carousel{
   width: 90vw;
   margin: 5%;
   position: relative;
+}
+#send{
+  margin-top: 5%;
 }
 .carousel-caption{
   position: absolute;
@@ -130,4 +143,27 @@ button{
 .btn{
   width: 150px;
   margin: 0;
+}
+.lottie-animation{
+  height: 200px;
+  width: 200px;
+}
+@media screen and (max-width: 500px){
+  .middle{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  img{
+    height: 50vh;
+  }
+  .top{
+    height: 50vh;
+  }
+  .delivery{
+    display: none;
+  }
+  .carousel-caption{
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -12,7 +12,7 @@
           reliable parcel delivery We deliver your parcels on time and we have a
           safety protocol or our parcels
         </p>
-        <button class="btn" (click)="getstarted()">Get Started</button>
+        <button class="btn" (click)="getstarted()"  >Get Started</button>
       </div>
     </div>
   </div>
@@ -21,15 +21,25 @@
     <h2>Our Services</h2>
     <div class="middle d-flex">
       <div class="one">
-        <img class="img " src="https://th.bing.com/th?q=Profile+Face+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.89&pid=InlineBlock&mkt=en-WW&cc=KE&setlang=en&adlt=moderate&t=1&mw=247"/>
+        <div class="lottie-animation ">
+          <ng-lottie
+            [options]="options"
+            (animationCreated)="onAnimate($event)">
+          </ng-lottie>
+        </div>
         <h5>Parcel Delivery</h5>
-        <p>
+        <p >
           Describe your service here. What makes it great? Use short catchy text
           to tell people what you offer, and the benefits they will receive.
         </p>
       </div>
       <div class="two">
-        <img class="img" src="https://th.bing.com/th?q=Profile+Face+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.89&pid=InlineBlock&mkt=en-WW&cc=KE&setlang=en&adlt=moderate&t=1&mw=247"/>
+        <div class="lottie-animation ">
+          <ng-lottie
+            [options]="options1"
+            (animationCreated)="onAnimate($event)">
+          </ng-lottie>
+        </div>
         <h5>Storage Services</h5>
         <p>
           Describe your service here. What makes it great? Use short catchy text
@@ -37,7 +47,12 @@
         </p>
       </div>
       <div class="three">
-        <img class="img" src="https://th.bing.com/th?q=Profile+Face+Drawing&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.89&pid=InlineBlock&mkt=en-WW&cc=KE&setlang=en&adlt=moderate&t=1&mw=247"/>
+        <div class="lottie-animation ">
+          <ng-lottie
+            [options]="options2"
+            (animationCreated)="onAnimate($event)">
+          </ng-lottie>
+        </div>
         <h5>Packaging</h5>
         <p>
           Describe your service here. What makes it great? Use short catchy text
@@ -47,7 +62,7 @@
     </div>
   </div>
   <div class="delivery">
-    <h2>Delivery steps</h2>
+    <h2 id="send">Delivery steps</h2>
     <div class="steps-container">
       <div class="steps">
         <div class="align"><span class="dot">1</span></div>

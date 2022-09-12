@@ -27,4 +27,7 @@ export class AuthService {
   isLoggedIn() {
     return !!localStorage.getItem('token');
   }
+  showUsers():Observable<Userr[]>{
+    return this.http.get<Userr[]>(this.baseUrl+'/signup')
+  }
 }

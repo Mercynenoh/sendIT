@@ -2,50 +2,57 @@
   <!-- <app-header></app-header> -->
   <div class="left">
     <div class="sent m-4">
-    <table>
-      <h3 class=" text-black">Parcels Sent</h3>
+      <h3 class=" text-black">Parcels Received</h3>
+    <table *ngIf="parcel$| async as parcel">
       <tr>
       <th>Tracking No.</th>
       <th>Parcel Name</th>
+      <th>From</th>
       <th>Details</th>
 
     </tr>
-      <tr>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td><button class="button" (click)="onview()" >View</button></td>
-      </tr>
-      <tr>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td><button class="button" >View</button></td>
+      <tr *ngFor="let item of parcel |paginate :{itemsPerPage:5,currentPage:p}">
+        <td>{{item.Tracking}}</td>
+        <td>{{item.Parcelname}}</td>
+        <td>{{item.Senderemail}}</td>
+        <td><button class="button" (click)="onview(item.id)" >View</button></td>
       </tr>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
   <div class="received m-4">
     <table>
-      <h3 class="text-black">Parcels Received</h3>
-      <tr>
-      <th>Tracking No.</th>
-      <th>Parcel Name</th>
-      <th>Details</th>
+      <h3 class=" text-black">Parcels Sent</h3>
+      <table *ngIf="parcel$| async as parcel">
+        <tr>
+        <th>Tracking No.</th>
+        <th>Parcel Name</th>
+        <th>Sent To:</th>
+        <th>Details</th>
 
-    </tr>
-      <tr>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td><button class="button" >View</button></td>
       </tr>
-      <tr>
-        <td>65774905</td>
-        <td>Certificates</td>
-        <td><button class="button" >View</button></td>
-      </tr>
+        <tr *ngFor="let item of parcel |paginate :{itemsPerPage:5,currentPage:p}">
+          <td>{{item.Tracking}}</td>
+          <td>{{item.Parcelname}}</td>
+          <td>{{item.Receipientemail}}</td>
+          <td><button class="button" (click)="onview(item.id)" >View</button></td>
+        </tr>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
   </div>
   </div>
   <div class="right">
-<input placeholder="Enter Parcel weight"/>
-<button class="btn">Get Quote</button>
+    <h3>Select Weight to get quote</h3>
+    <h5>Weight Categories</h5>
+    <div class="categories">
+      <button (click)="onOne()">100-300g</button>
+      <button (click)="onTwo()">301-600g</button>
+      <button (click)="onThree()">601-900g</button>
+      <button (click)="onFour()">901-1200g</button>
+    </div>
+    <div class="view" *ngFor="let item of newquote">
+        <p>{{item.quote}}</p>
+    </div>
   </div>
 </div>

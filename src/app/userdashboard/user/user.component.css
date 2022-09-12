@@ -1,5 +1,6 @@
 .main{
   display: flex;
+  height: 100vh;
 }
 table {
   font-family: arial, sans-serif;
@@ -45,5 +46,16 @@ border-radius: 8px;
 }
 .right{
   margin-top: 6%;
+}
+button{
+  margin: 5px;
+  border: none;
+}
+@media screen and (max-width: 500px){
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 

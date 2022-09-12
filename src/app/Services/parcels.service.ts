@@ -12,13 +12,19 @@ export class ParcelsService {
 
   constructor( private http:HttpClient) {
   }
-  addParcel(result:parcel){
-    return this.http.post(this.baseUrl+'/Parcels', result)
+  addParcel(result:parcel):Observable<{message:string}>{
+    return this.http.post<{message:string}>(this.baseUrl+'/Parcels', result)
   }
   showParcel():Observable<parcel[]>{
     return this.http.get<parcel[]>(this.baseUrl+'/Parcels')
   }
-  deleteParcel(ParcelsId:string){
-    return this.http.delete(`${this.baseUrl}${ParcelsId}`)
+  getParcelDetails(id:number): Observable<parcel[]>{
+    return this.http.get<parcel[]>(`${this.baseUrl}/Parcels/${id}`)
+  }
+  deleteParcel(id:number): Observable <{message:string}>{
+    return this.http.delete<{message:string}>(`${this.baseUrl}/Parcels/${id}`)
+  }
+  getmyParcel(Senderemail:string): Observable<parcel[]>{
+    return this.http.get<parcel[]>(`${this.baseUrl}/Parcels/${Senderemail}`)
   }
 }

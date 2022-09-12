@@ -1,6 +1,6 @@
 export interface Userr{
   Firstname:string
   Lastname:string
-  Email:string
+  email:string
   Password:string
 }

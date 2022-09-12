@@ -5,28 +5,37 @@
 </div>
   </div>
   <div class="right">
-    <input placeholder="Search by name" class="m-2" [(ngModel)]="filter">
+    <input placeholder="Search by tracking No." class="m-2" [(ngModel)]="filter">
     <h3 class="text-black"> All Parcels</h3>
     <table *ngIf="parcels$| async  as parcels">
       <tr>
+      <th>Id</th>
       <th>Destination</th>
       <th>Tracking No.</th>
-      <th>Parcel Name</th>
-      <th>Truck No.</th>
-      <th>Weight</th>
-      <th>Status</th>
-      <th>Date</th>
+      <th class="new">Sent By</th>
+      <th class="new">Sent To</th>
+      <th class="new">Parcel Name</th>
+      <th class="new">Truck No.</th>
+      <th class="new">Weight</th>
+      <th class="new">Status</th>
+      <th class="new">Date</th>
       <th>Details</th>
+      <th></th>
     </tr>
-      <tr *ngFor="let parcel of parcels |search:filter">
+      <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}">
+        <td>{{parcel.id}}</td>
         <td>{{parcel.Adress}}</td>
         <td>{{parcel.Tracking}}</td>
-        <td>{{parcel.Parcelname}}</td>
-        <td>{{parcel.TruckNo}}</td>
-        <td>{{parcel.Weight}}</td>
-        <td>{{parcel.Status}}</td>
-        <td>{{parcel.Date}}</td>
+        <td class="new">{{parcel.Senderemail}}</td>
+        <td class="new">{{parcel.Receipientemail}}</td>
+        <td class="new">{{parcel.Parcelname}}</td>
+        <td class="new">{{parcel.TruckNo}}</td>
+        <td class="new">{{parcel.Weight}}g</td>
+        <td class="new">{{parcel.Status}}</td>
+        <td class="new">{{parcel.Date}}</td>
         <td><button class="button" (click)="onview(parcel.id)">View</button></td>
+        <td><button class="button"(click)="onDelete(parcel.id)" >Delete</button></td>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

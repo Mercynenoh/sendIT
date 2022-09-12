@@ -1,46 +1,54 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { ParcelsService } from 'src/app/Services/parcels.service';
 
 @Component({
   selector: 'google-maps',
   templateUrl: './google-maps.component.html',
-  styleUrls: ['./google-maps.component.css']
+  styleUrls: ['./google-maps.component.css'],
 })
 export class GoogleMapsComponent implements OnInit {
+  constructor(private service: ParcelsService) {}
 
-  constructor() { }
+
+  markerPositions: google.maps.LatLngLiteral[] = [
+
+  ];
 
   ngOnInit(): void {
+    this.service.showParcel().subscribe((res) => {
+      const coordinates = res.map((parcel) => ({
+        lat: parcel.lat,
+        lng: parcel.lng,
+      }));
+
+      this.markerPositions =  coordinates.concat([
+        {
+          lat: -4.043740,
+          lng: 39.658871,
+        }
+      ]);
+    });
+
 
   }
-  display:any
+  display: any;
   center: google.maps.LatLngLiteral = {
     lat: -0.42013,
-    lng: 36.94759
-};
-zoom = 4;
-moveMap(event: google.maps.MapMouseEvent) {
-  if (event.latLng != null) this.center = (event.latLng.toJSON());
-}
-move(event: google.maps.MapMouseEvent) {
-  if (event.latLng != null) this.display = event.latLng.toJSON();
-}
-markerOptions: google.maps.MarkerOptions = {
-    draggable: false
-};
-markerPositions: google.maps.LatLngLiteral[] = [
-  {
-    lat: -0.42013,
-    lng: 36.94759
-  },
-  {
-    lat: 1.292066,
-    lng: 36.821946
+    lng: 36.94759,
+  };
+  zoom = 4;
+  moveMap(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.center = event.latLng.toJSON();
   }
-];
-
-@HostListener('window:load')
-  onLoad() {
-
-
-    }
+  move(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.display = event.latLng.toJSON();
   }
+  markerOptions: google.maps.MarkerOptions = {
+    draggable: false,
+  };
+
+  // markerPositions: google.maps.LatLngLiteral[] = [];
+
+  @HostListener('window:load')
+  onLoad() {}
+}

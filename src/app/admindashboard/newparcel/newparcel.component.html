@@ -1,23 +1,31 @@
-<h3 class="text-black text-center">Request Form</h3>
+<div class="mains">
+<h3 class="text-black text-center request">Request Form</h3>
+<p *ngIf="!regSuccess">Inputs Required</p>
 <form class="main m-4" [formGroup]="addForm" (ngSubmit)="addnewParcel()">
   <div class="left">
     <div>
       <label class="form-label" for="form8Example1">Delivery Adress</label>
-      <input type="text" id="form8Example1" class="form-control" formControlName="Adress"/>
+      <select formControlName="Adress" class="form-control">
+        <option *ngFor="let item of parcel$ | async" value={{item.Adress}} >{{item.Adress}}</option>
+      </select>
       <p *ngIf="!addForm.get('Adress')!.valid && addForm.get('Adress')!.touched">
         Input required
        </p>
     </div>
   <div>
-    <label class="form-label" for="form8Example1">Sender email</label>
-    <input type="email" id="form8Example1" class="form-control" formControlName="Senderemail"/>
+    <label class="form-label" for="form8Example1">Sender email</label><br>
+    <select formControlName="Senderemail" class="form-control">
+      <option *ngFor="let item of user$ | async" value={{item.email}} >{{item.email}}</option>
+    </select>
     <p *ngIf="!addForm.get('Senderemail')!.valid && addForm.get('Senderemail')!.touched">
      Input required
     </p>
   </div>
   <div>
     <label class="form-label" for="form8Example1">Recipient email</label>
-    <input type="email" id="form8Example1" class="form-control" formControlName="Receipientemail"/>
+    <select formControlName="Receipientemail" class="form-control">
+      <option *ngFor="let item of user$ | async" value={{item.email}} >{{item.email}}</option>
+    </select>
     <p *ngIf="!addForm.get('Receipientemail')!.valid && addForm.get('Receipientemail')!.touched">
       Input required
      </p>
@@ -72,3 +80,4 @@
   </div>
 
 </form>
+</div>

@@ -22,6 +22,10 @@
     "@ngrx/effects": "^14.3.0",
     "@ngrx/store": "^14.3.0",
     "@ngrx/store-devtools": "^14.3.0",
+    "lottie-web": "^5.9.6",
+    "ng2-order-pipe": "^0.1.5",
+    "ngx-lottie": "^9.0.1",
+    "ngx-pagination": "^6.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

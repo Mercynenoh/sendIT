@@ -1,16 +1,20 @@
 .main{
   display:flex;
   gap: 5%;
+  flex-wrap: wrap;
+  height:100vh;
+  width: 100%;
 }
 .left{
   width:200px;
-  height:100vh;
+  height:auto;
   background-color: #F68B1E;
+  height:100vh;
 }
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 65vw;
+  width:  70vw;
 }
 
 td, th {
@@ -35,4 +39,40 @@ tr:nth-child(even) {
   background-color: black;
   color: white;
 }
-
+.right{
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 920px){
+  .left{
+    width:100%;
+    height:auto;
+  }
+  .main{
+    display: flex;
+    flex-direction: column;
+  }
+  .right{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  table{
+    width:100%;
+    font-size: 10px;
+  }
+.new{
+  display: none;
+}
+.button{
+  background-color:#F68B1E;
+  height: 20px;
+  width: 30px;
+  font-size: 8px;
+  border: none;
+  border-radius: 5px;
+ }
+ input{
+  width: 100%;
+ }
+}
