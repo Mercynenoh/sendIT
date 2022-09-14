@@ -23,7 +23,7 @@ export class AdminComponent implements OnInit {
   }
   onview(id:number=0){
     this.store.dispatch(Actions.ParcelId({id}))
-    this.router.navigate([`/admin/admindetails/${id}`], {relativeTo:this.route})
+    this.router.navigate([`/admin/admindetails/${id}`])
   }
   onAll(){
     this.router.navigate(['admin'])

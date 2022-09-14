@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { image } from '../userdashboard/profile/profile.component';
-
+import { Userr } from '../Interfaces/user';
+export interface image{
+  image:string
+  Bio:string
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +23,8 @@ export class ImageService {
 
     return this.http.post('/api/v1/image-upload', formData);
   }
-  addImage(image: File):Observable<{message:string}>{
-    return this.http.post<{message:string}>(this.baseUrl+'/add', image)
+  addimage(result:image): Observable <{message:string}>{
+    return this.http.post<{message:string}>(`${this.baseUrl}/add`,result)
   }
   seeimage():Observable<image[]>{
     return this.http.get<image[]>(this.baseUrl+'/profiles')

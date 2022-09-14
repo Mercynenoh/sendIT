@@ -5,6 +5,7 @@ export interface Userr{
   Password:string
   role:string
   issent:string
+  id:number
 }
 
 

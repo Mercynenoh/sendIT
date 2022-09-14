@@ -7,7 +7,7 @@
          accept="image/*"
          (change)="processFile(imageInput)" formControlName="image">
          <label>Bio</label>
-         <input formControlName="Bio" type=text/>
+
 </label>
 <button type="submit" class="btn btn-info">Add</button>
 </form>
@@ -15,6 +15,7 @@
 <div class="display" *ngFor="let item of profile">
   <img [src]=item.image/>
   <p>{{item.Bio}}</p>
+
 </div>
 </div>
 

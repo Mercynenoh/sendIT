@@ -8,16 +8,21 @@ import { ParcelsService } from 'src/app/Services/parcels.service';
 })
 export class GoogleMapsComponent implements OnInit {
   constructor(private service: ParcelsService) {}
-
+id!:number
 
   markerPositions: google.maps.LatLngLiteral[] = [
 
   ];
 
   ngOnInit(): void {
-    this.service.showParcel().subscribe((res) => {
+  this.showmap(this.id)
+
+
+  }
+  showmap(id:number){
+    this.service.getParcelDetails(id).subscribe((res) => {
       const coordinates = res.map((parcel) => ({
-        lat: parcel.lat,
+        lat: parcel.lat,  
         lng: parcel.lng,
       }));
 
@@ -28,9 +33,8 @@ export class GoogleMapsComponent implements OnInit {
         }
       ]);
     });
-
-
   }
+
   display: any;
   center: google.maps.LatLngLiteral = {
     lat: -0.42013,
@@ -46,8 +50,6 @@ export class GoogleMapsComponent implements OnInit {
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
   };
-
-  // markerPositions: google.maps.LatLngLiteral[] = [];
 
   @HostListener('window:load')
   onLoad() {}

@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ImageService } from 'src/app/Services/image.service';
+import { Userr } from 'src/app/Interfaces/user';
+import { AuthService } from 'src/app/Services/auth.service';
+import { image, ImageService } from 'src/app/Services/image.service';
 
 class ImageSnippet {
   constructor(public src: string, public file: File) {}
 }
-export interface image{
-  image:string
-  Bio:string
-}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -23,15 +22,14 @@ export class ProfileComponent implements OnInit {
   profile:image[]=[]
 
   ngOnInit(): void {
+    this.getProfiles()
     this.addForms = this.fb.group({
       image:[null],
-      Bio:[null],
     });
-    this.getProfiles()
   }
   selectedFile!: ImageSnippet;
 
-  constructor(private imageService: ImageService,private fb:FormBuilder){}
+  constructor(private imageService: ImageService,private fb:FormBuilder,private service:AuthService){}
 
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
@@ -41,7 +39,7 @@ export class ProfileComponent implements OnInit {
 
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
-      this.imageService.addImage(this.addForms.value.image).subscribe(
+      this.imageService.addimage(this.addForms.value.image).subscribe(
         (res) => {
 
         },
@@ -53,16 +51,14 @@ export class ProfileComponent implements OnInit {
     reader.readAsDataURL(file);
   }
   onadd(){
- this.imageService.addImage(this.addForms.value).subscribe(res=>{
+ this.imageService.addimage(this.addForms.value).subscribe(res=>{
   console.log(this.addForms.value);
 
  })
   }
   getProfiles(){
-    this.imageService.seeimage().subscribe(res=>{
-      this.profile=res
-      console.log(res);
-
-    })
+   this.imageService.seeimage().subscribe(res=>{
+    this.profile=res
+   })
   }
 }
