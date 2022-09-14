@@ -11,14 +11,15 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class SignupComponent implements OnInit {
   addForms!: FormGroup;
   regSuccess =true
+  error='Empty Fields!!!'
   constructor(private router:Router, private fb:FormBuilder, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.addForms = this.fb.group({
-      first:[null,[Validators.required]],
-      last:[null,[Validators.required]],
-      email: [null,[Validators.required]],
-      password: [null,[Validators.required,this.checkPassword]],
+      Firstname:[null,[Validators.required]],
+      Lastname:[null,[Validators.required]],
+      Senderemail: [null,[Validators.required]],
+      Password: [null,[Validators.required,this.checkPassword]],
     });
   }
 
@@ -35,8 +36,6 @@ addUser() {
   if(this.addForms.valid){
   this.auth.registerUser(this.addForms.value).subscribe(response=>{
     this.regSuccess = true
-    console.log(response);
-
     if (this.regSuccess){
      this.router.navigate(['auth/login'])
     }
@@ -45,5 +44,8 @@ addUser() {
   this.regSuccess=false
 }
   }
+  onClose(){
+    this.regSuccess=true
+    }
 
 }

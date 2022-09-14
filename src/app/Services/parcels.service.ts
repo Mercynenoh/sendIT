@@ -8,23 +8,23 @@ import { parcel } from '../Interfaces/parces';
 })
 export class ParcelsService {
 
-  baseUrl:string ="http://localhost:3000"
+  baseUrl:string ="http://localhost:5000/parcels"
 
   constructor( private http:HttpClient) {
   }
   addParcel(result:parcel):Observable<{message:string}>{
-    return this.http.post<{message:string}>(this.baseUrl+'/Parcels', result)
+    return this.http.post<{message:string}>(this.baseUrl+'/add', result)
   }
   showParcel():Observable<parcel[]>{
-    return this.http.get<parcel[]>(this.baseUrl+'/Parcels')
+    return this.http.get<parcel[]>(this.baseUrl+'/get')
   }
   getParcelDetails(id:number): Observable<parcel[]>{
-    return this.http.get<parcel[]>(`${this.baseUrl}/Parcels/${id}`)
+    return this.http.get<parcel[]>(`${this.baseUrl}/${id}`)
   }
   deleteParcel(id:number): Observable <{message:string}>{
-    return this.http.delete<{message:string}>(`${this.baseUrl}/Parcels/${id}`)
+    return this.http.delete<{message:string}>(`${this.baseUrl}/${id}`)
   }
   getmyParcel(Senderemail:string): Observable<parcel[]>{
-    return this.http.get<parcel[]>(`${this.baseUrl}/Parcels/${Senderemail}`)
+    return this.http.get<parcel[]>(`${this.baseUrl}/${Senderemail}`)
   }
 }

@@ -13,7 +13,11 @@
       <button class="button " (click)="onsignup()" *ngIf="!auth.isLoggedIn()" > Signup</button>
       <button class="button " (click)="onlogin()" *ngIf="!auth.isLoggedIn()"  > Login</button>
       <button class="button " (click)="onlogout()" *ngIf="auth.isLoggedIn()" > Logout</button>
+      <button class="button " (click)="onprofile()" *ngIf="auth.isLoggedIn()" > Profile</button>
     </div>
+  </div>
+  <div class="profile">
+    <img src="/assets/person-add-outline (1).svg"/>
   </div>
 </div>
 

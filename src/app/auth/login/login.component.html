@@ -10,11 +10,11 @@
         <app-error *ngIf="logged" [message]=error (close)="onClose()"></app-error>
         <!-- <p *ngIf="logged" class="p">Empty Fields!!</p> -->
         <label class="form-label" for="registerName">*Email:</label>
-        <input type="text" ngModel name="email" class="form-control"/>
+        <input type="text" ngModel name="Senderemail" class="form-control"/>
       </div>
       <div >
         <label class="form-label" for="registerName">*Password:</label>
-        <input type="password" id="registerName" ngModel name="password" class="form-control"/>
+        <input type="password" id="registerName" ngModel name="Password" class="form-control"/>
       </div>
       <button class="btn btn-dark m-4" type="submit">Login</button>
       </form>

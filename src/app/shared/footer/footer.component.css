@@ -6,9 +6,16 @@ footer{
   display: flex;
   flex-wrap: wrap;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 900px){
   .social{
     display: none;
+  }
+  .contact{
+    display: none;
+  }
+  footer{
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 

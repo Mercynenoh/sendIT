@@ -18,18 +18,18 @@
       <form [formGroup]="addForms" (ngSubmit)="addUser()">
          <h3 class="text-black m-3">SignUp Here:</h3>
         <label>Firstname</label>
-        <input  formControlName="first" class="form-control"/>
+        <input  formControlName="Firstname" class="form-control"/>
 
         <label>Lastname</label>
-        <input  formControlName="last" class="form-control"/>
+        <input  formControlName="Lastname" class="form-control"/>
 
         <label>Email</label>
-        <input type="email" formControlName="email" class="form-control"/>
+        <input type="email" formControlName="Senderemail" class="form-control"/>
 
         <label>Password</label>
-        <input formControlName="password" type="password" class="form-control"/>
-        <div *ngIf="!addForms.get('password')!.valid && addForms.get('password')!.touched">
-          <p class="error" *ngIf="addForms.get('password')!.errors!['special']">
+        <input formControlName="Password" type="password" class="form-control"/>
+        <div *ngIf="!addForms.get('Password')!.valid && addForms.get('Password')!.touched">
+          <p class="error" *ngIf="addForms.get('Password')!.errors!['special']">
             *special characters required.
           </p>
           </div>

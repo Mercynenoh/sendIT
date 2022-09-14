@@ -10,11 +10,16 @@ import { ParcelReducer } from '../admindashboard/Redux/Reducers/ParcelReducers';
 import { EffectsModule } from '@ngrx/effects';
 import { ParcelEffectsService } from '../admindashboard/Redux/Effects/ParcelEffects';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SentComponent } from './sent/sent.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     UserComponent,
-    UserdetailComponent
+    UserdetailComponent,
+    SentComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +28,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     UserRouterModule,
     StoreModule.forFeature('parcels', ParcelReducer),
     EffectsModule.forFeature([ParcelEffectsService]),
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
 
   ]
 })

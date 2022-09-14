@@ -21,7 +21,7 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 tr:nth-child(even) {
@@ -43,7 +43,7 @@ tr:nth-child(even) {
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 920px){
+@media screen and (max-width: 1000px){
   .left{
     width:100%;
     height:auto;
@@ -58,12 +58,12 @@ tr:nth-child(even) {
     flex-wrap: wrap;
   }
   table{
-    width:100%;
+    width:60vh;
     font-size: 10px;
   }
-.new{
+/* .new{
   display: none;
-}
+} */
 .button{
   background-color:#F68B1E;
   height: 20px;
@@ -73,6 +73,7 @@ tr:nth-child(even) {
   border-radius: 5px;
  }
  input{
-  width: 100%;
+  width: 40vw;
  }
+
 }

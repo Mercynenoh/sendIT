@@ -16,6 +16,21 @@
       "id": 2
     },
     {
+      "Adress": "Kitale",
+      "Senderemail": "new@gmail.com",
+      "Receipientemail": "chep@gmail.com",
+      "Parcelname": "Gifts",
+      "Weight": 300,
+      "Status": "Delivered",
+      "Date": "2022-09-12",
+      "lat": 1.292066,
+      "lng": 36.821946,
+      "TruckNo": "KDD 211Y",
+      "Tracking": "378293090",
+      "Price": 50,
+      "id": 2
+    },
+    {
       "Adress": "Kisumu",
       "Senderemail": "table@gmail.com",
       "Receipientemail": "chep@gmail.com",

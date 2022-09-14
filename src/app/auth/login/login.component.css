@@ -13,7 +13,7 @@ img{
   width:600px;
   background-color: white;
   bottom: -40%;
-  left: 20%;
+  left: 25%;
   right: 0;
   top:20%;
   display: flex;
@@ -64,5 +64,5 @@ input{
   width:300px;
   left: 10%;
   }
- 
+
 }

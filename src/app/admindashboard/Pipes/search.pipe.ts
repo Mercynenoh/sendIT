@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
     }
     const student:parcel[]=[]
     for (let students of value){
-   if (students.Tracking.toString().indexOf(Tracking)!=-1){
+   if (students.TrackingNo.toString().indexOf(Tracking)!=-1){
     student.push(students)
    }
   }

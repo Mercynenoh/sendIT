@@ -9,10 +9,10 @@ import { AuthService } from '../Services/auth.service';
 export class UserGuard implements CanActivate {
   constructor(private router:Router, private service:AuthService){}
   canActivate() {
-    if(this.service.isLoggedIn()){
+    if(localStorage.getItem('role')==='user'){
       return true
     }else{
-      this.router.navigate([''])
+      this.router.navigate(['auth/login'])
       return false
 }
 

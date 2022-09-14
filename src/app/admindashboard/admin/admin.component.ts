@@ -23,8 +23,6 @@ export class AdminComponent implements OnInit {
   }
   onview(id:number=0){
     this.store.dispatch(Actions.ParcelId({id}))
-    console.log(id);
-
     this.router.navigate([`/admin/admindetails/${id}`], {relativeTo:this.route})
   }
   onAll(){

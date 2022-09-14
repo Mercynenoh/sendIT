@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class NewparcelComponent implements OnInit {
   regSuccess=true
+  error="Inputs Required"
   constructor(private router:Router, private fb:FormBuilder, private service:AuthService,private parcel:ParcelsService, private store:Store<ParcelState>) { }
   addForm!: FormGroup;
   user$:Observable<Userr[]>=new Observable()
@@ -24,23 +25,49 @@ export class NewparcelComponent implements OnInit {
   ngOnInit(): void {
     this.onget()
     this.onParcel()
+    this.getLocation()
     this.addForm = this.fb.group({
       Adress: [null,[Validators.required]],
       Senderemail:[null,[Validators.required, Validators.email]],
-      Receipientemail:[null,[Validators.required, Validators.email]],
-      Parcelname: [null,[Validators.required]],
-      Weight: [null,[Validators.required]],
-      Status: [null,[Validators.required]],
+      RecepientEmail:[null,[Validators.required, Validators.email]],
+      parcelname: [null,[Validators.required]],
+      weight: [null,[Validators.required]],
       Date: [null,[Validators.required]],
+      lat: [null,[Validators.required]],
+      lng: [null,[Validators.required]],
       TruckNo: [null,[Validators.required]],
-      Tracking: [null,[Validators.required]],
+      TrackingNo: [null,[Validators.required]],
       Price: [null,[Validators.required]],
 
     });
-    this.addForm.get('Weight')!.valueChanges.subscribe(res=>{
+    this.addForm.get('weight')!.valueChanges.subscribe(res=>{
 
-      this.addForm.get('Price')!.setValue(res*100)
+      this.addForm.get('Price')!.setValue(res*23)
     });
+  }
+  callApi(Longitude:number, Latitude:number){
+
+    const url = `https://api-adresse.data.gouv.fr/reverse/?lon=${Longitude}%lat=${Latitude}`
+
+  }
+  getLocation(){
+
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position)=>{
+        const longitude = position.coords.longitude;
+        const latitude = position.coords.latitude;
+        console.log(longitude,latitude)
+        this.addForm.get('lat')?.setValue(latitude)
+        this.addForm.get('lng')?.setValue(longitude)
+        this.callApi(longitude, latitude);
+      });
+
+    }else{
+
+      console.log('no support for geolocation')
+
+    }
+
   }
 
 
@@ -52,20 +79,22 @@ export class NewparcelComponent implements OnInit {
 onsubmit(){
 this.router.navigate(['admin'])
 }
+onClose(){
+  this.regSuccess=true
+  }
 addnewParcel(){
 
-if(this.addForm.valid){
+
   const newProduct:parcel={...this.addForm.value}
   this.store.dispatch(Actions.addParcel({newProduct}))
   this.store.dispatch(Actions.LoadParcels())
   this.router.navigate(['admin'])
-
+   console.log();
+   if(this.addForm.valid){
   }else{
     this.regSuccess=false
   }
-  setTimeout(() => {
     this.regSuccess=true
-  }, 3000);
 }
 onget(){
   this.user$= this.service.showUsers()

@@ -2,14 +2,14 @@
 <div class="main">
   <div class="card  text-black" *ngIf="parcel$ |async  as parcel" >
     <h4>Parcel Details</h4>
-  <h3>Parcel Name:<span> {{parcel.Parcelname}}</span></h3>
+  <h3>Parcel Name:<span> {{parcel.parcelname}}</span></h3>
   <h3>Sent From: <span>{{parcel.Senderemail}}</span></h3>
-  <h3>Sent To:<span> {{parcel.Receipientemail}}</span></h3>
+  <h3>Sent To:<span> {{parcel.RecepientEmail}}</span></h3>
   <h3>Date Sent:<span>{{parcel.Date}}</span> </h3>
   <h3>Truck No: <span>{{parcel.TruckNo}}</span></h3>
   <h3>Adress:  <span>{{parcel.Adress}}</span></h3>
-  <h3>Weight  <span>{{parcel.Weight}}g</span></h3>
-  <h3>Status:  <span>{{parcel.Status}}</span></h3>
+  <h3>Weight  <span>{{parcel.weight}}g</span></h3>
+  <h3>Status:  <span>{{parcel.status}}</span></h3>
   <h3> Update Status: <button class="button">Delivered</button></h3>
   </div>
   <div class="map m-2">

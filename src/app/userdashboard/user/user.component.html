@@ -5,54 +5,30 @@
       <h3 class=" text-black">Parcels Received</h3>
     <table *ngIf="parcel$| async as parcel">
       <tr>
-      <th>Tracking No.</th>
+      <th>id</th>
+      <th>Tracking No</th>
+      <th>Adress</th>
       <th>Parcel Name</th>
       <th>From</th>
+      <th>Price</th>
       <th>Details</th>
 
     </tr>
       <tr *ngFor="let item of parcel |paginate :{itemsPerPage:5,currentPage:p}">
-        <td>{{item.Tracking}}</td>
-        <td>{{item.Parcelname}}</td>
+        <td>{{item.id}}</td>
+        <td>{{item.TrackingNo}}</td>
+        <td>{{item.Adress}}</td>
+        <td>{{item.parcelname}}</td>
         <td>{{item.Senderemail}}</td>
+        <td>{{item.Price | currency:'Ksh.'}}</td>
         <td><button class="button" (click)="onview(item.id)" >View</button></td>
       </tr>
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
   <div class="received m-4">
-    <table>
-      <h3 class=" text-black">Parcels Sent</h3>
-      <table *ngIf="parcel$| async as parcel">
-        <tr>
-        <th>Tracking No.</th>
-        <th>Parcel Name</th>
-        <th>Sent To:</th>
-        <th>Details</th>
+   <app-sent></app-sent>
+  </div>
+  </div>
 
-      </tr>
-        <tr *ngFor="let item of parcel |paginate :{itemsPerPage:5,currentPage:p}">
-          <td>{{item.Tracking}}</td>
-          <td>{{item.Parcelname}}</td>
-          <td>{{item.Receipientemail}}</td>
-          <td><button class="button" (click)="onview(item.id)" >View</button></td>
-        </tr>
-      </table>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </table>
-  </div>
-  </div>
-  <div class="right">
-    <h3>Select Weight to get quote</h3>
-    <h5>Weight Categories</h5>
-    <div class="categories">
-      <button (click)="onOne()">100-300g</button>
-      <button (click)="onTwo()">301-600g</button>
-      <button (click)="onThree()">601-900g</button>
-      <button (click)="onFour()">901-1200g</button>
-    </div>
-    <div class="view" *ngFor="let item of newquote">
-        <p>{{item.quote}}</p>
-    </div>
-  </div>
 </div>

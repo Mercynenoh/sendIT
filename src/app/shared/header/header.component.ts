@@ -26,5 +26,8 @@ this.router.navigate(['auth/signup'])
   onhome(){
     this.router.navigate([''])
   }
+  onprofile(){
+    this.router.navigate(['user/profile'])
+  }
 
 }

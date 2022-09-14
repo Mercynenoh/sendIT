@@ -1,13 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Userr } from '../Interfaces/user';
+import { loginuser, Userr } from '../Interfaces/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  baseUrl: string = 'http://localhost:3000';
+  baseUrl: string = 'http://localhost:5000/user';
   private httpOptions: any;
 
   constructor(private http: HttpClient) {
@@ -21,13 +21,13 @@ export class AuthService {
     return this.http.post<Userr>(this.baseUrl + '/signup', data);
   }
 
-  loginUser(data: Userr) {
-    return this.http.post(this.baseUrl + '/login', data);
+  loginUser(data:loginuser): Observable<any>{
+    return this.http.post<any>(this.baseUrl+'/login/',data)
   }
   isLoggedIn() {
     return !!localStorage.getItem('token');
   }
   showUsers():Observable<Userr[]>{
-    return this.http.get<Userr[]>(this.baseUrl+'/signup')
+    return this.http.get<Userr[]>(this.baseUrl+'/all')
   }
 }

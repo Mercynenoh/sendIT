@@ -1,21 +1,36 @@
 <div class="mains">
 <h3 class="text-black text-center request">Request Form</h3>
-<p *ngIf="!regSuccess">Inputs Required</p>
+<!-- <p *ngIf="!regSuccess">Inputs Required</p> -->
+<app-error *ngIf="!regSuccess" [message]=error (close)="onClose()"></app-error>
 <form class="main m-4" [formGroup]="addForm" (ngSubmit)="addnewParcel()">
   <div class="left">
     <div>
       <label class="form-label" for="form8Example1">Delivery Adress</label>
-      <select formControlName="Adress" class="form-control">
-        <option *ngFor="let item of parcel$ | async" value={{item.Adress}} >{{item.Adress}}</option>
-      </select>
+      <input formControlName="Adress" class="form-control"/>
+        <!-- <option *ngFor="let item of parcel$ | async" value={{item.Adress}} >{{item.Adress}}</option>
+      </select> -->
       <p *ngIf="!addForm.get('Adress')!.valid && addForm.get('Adress')!.touched">
         Input required
        </p>
     </div>
+    <!-- <div>
+      <label class="form-label" for="form8Example1">Latitude</label>
+      <input type="number" id="form8Example1" class="form-control" formControlName="lat"/>
+      <p *ngIf="!addForm.get('lat')!.valid && addForm.get('lat')!.touched">
+        Input required
+       </p>
+    </div>
+    <div>
+      <label class="form-label" for="form8Example1">Longitude</label>
+      <input type="number" id="form8Example1" class="form-control" formControlName="lng"/>
+      <p *ngIf="!addForm.get('lng')!.valid && addForm.get('lng')!.touched">
+        Input required
+       </p>
+    </div> -->
   <div>
     <label class="form-label" for="form8Example1">Sender email</label><br>
     <select formControlName="Senderemail" class="form-control">
-      <option *ngFor="let item of user$ | async" value={{item.email}} >{{item.email}}</option>
+      <option *ngFor="let item of user$ | async" value={{item.Senderemail}} >{{item.Senderemail}}</option>
     </select>
     <p *ngIf="!addForm.get('Senderemail')!.valid && addForm.get('Senderemail')!.touched">
      Input required
@@ -23,24 +38,18 @@
   </div>
   <div>
     <label class="form-label" for="form8Example1">Recipient email</label>
-    <select formControlName="Receipientemail" class="form-control">
-      <option *ngFor="let item of user$ | async" value={{item.email}} >{{item.email}}</option>
-    </select>
-    <p *ngIf="!addForm.get('Receipientemail')!.valid && addForm.get('Receipientemail')!.touched">
+    <!-- <select formControlName="RecepientEmail" class="form-control">
+      <option *ngFor="let item of user$ | async" value={{item.Senderemail}} >{{item.Senderemail}}</option>
+    </select> -->
+    <input type="email" formControlName="RecepientEmail"class="form-control" />
+    <p *ngIf="!addForm.get('RecepientEmail')!.valid && addForm.get('RecepientEmail')!.touched">
       Input required
      </p>
   </div>
   <div>
     <label class="form-label" for="form8Example1">Parcel Name</label>
-    <input type="text" id="form8Example1" class="form-control" formControlName="Parcelname"/>
-    <p *ngIf="!addForm.get('Parcelname')!.valid && addForm.get('Parcelname')!.touched">
-      Input required
-     </p>
-  </div>
-  <div>
-    <label class="form-label" for="form8Example1">Status</label>
-    <input type="text" id="form8Example1" class="form-control" formControlName="Status"/>
-    <p *ngIf="!addForm.get('Status')!.valid && addForm.get('Status')!.touched">
+    <input type="text" id="form8Example1" class="form-control" formControlName="parcelname"/>
+    <p *ngIf="!addForm.get('parcelname')!.valid && addForm.get('parcelname')!.touched">
       Input required
      </p>
   </div>
@@ -48,8 +57,8 @@
   <div class="right">
     <div>
       <label class="form-label" for="form8Example1">Weight</label>
-      <input type="number" id="form8Example1" class="form-control" formControlName="Weight"/>
-      <p *ngIf="!addForm.get('Weight')!.valid && addForm.get('Weight')!.touched">
+      <input type="number" id="form8Example1" class="form-control" formControlName="weight"/>
+      <p *ngIf="!addForm.get('weight')!.valid && addForm.get('weight')!.touched">
         Input required
        </p>
     </div>
@@ -69,8 +78,8 @@
     </div>
     <div>
       <label class="form-label" for="form8Example1">Tracking No.</label>
-      <input type="text" id="form8Example1" class="form-control" formControlName="Tracking"/>
-      <p *ngIf="!addForm.get('Tracking')!.valid && addForm.get('Tracking')!.touched">
+      <input type="number" id="form8Example1" class="form-control" formControlName="TrackingNo"/>
+      <p *ngIf="!addForm.get('TrackingNo')!.valid && addForm.get('TrackingNo')!.touched">
         Input required
        </p>
     </div>

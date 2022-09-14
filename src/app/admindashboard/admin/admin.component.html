@@ -10,7 +10,7 @@
     <table *ngIf="parcels$| async  as parcels">
       <tr>
       <th>Id</th>
-      <th>Destination</th>
+      <th class="new">Destination</th>
       <th>Tracking No.</th>
       <th class="new">Sent By</th>
       <th class="new">Sent To</th>
@@ -25,14 +25,14 @@
     </tr>
       <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}">
         <td>{{parcel.id}}</td>
-        <td>{{parcel.Adress}}</td>
-        <td>{{parcel.Tracking}}</td>
+        <td class="new">{{parcel.Adress}}</td>
+        <td>{{parcel.TrackingNo}}</td>
         <td class="new">{{parcel.Senderemail}}</td>
-        <td class="new">{{parcel.Receipientemail}}</td>
-        <td class="new">{{parcel.Parcelname}}</td>
+        <td class="new">{{parcel.RecepientEmail}}</td>
+        <td class="new">{{parcel.parcelname}}</td>
         <td class="new">{{parcel.TruckNo}}</td>
-        <td class="new">{{parcel.Weight}}g</td>
-        <td class="new">{{parcel.Status}}</td>
+        <td class="new">{{parcel.weight}}g</td>
+        <td class="new">{{parcel.status}}</td>
         <td class="new">{{parcel.Date}}</td>
         <td class="new">{{parcel.Price | currency:'Ksh.'}}</td>
         <td><button class="button" (click)="onview(parcel.id)">View</button></td>
