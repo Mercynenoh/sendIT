@@ -1,5 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import * as Actions from '../../admindashboard/Redux/Actions/ParcelActions'
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs';
+import { getParcels, ParcelState } from 'src/app/admindashboard/Redux/Reducers/ParcelReducers';
 import { ParcelsService } from 'src/app/Services/parcels.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'google-maps',
@@ -7,7 +12,8 @@ import { ParcelsService } from 'src/app/Services/parcels.service';
   styleUrls: ['./google-maps.component.css'],
 })
 export class GoogleMapsComponent implements OnInit {
-  constructor(private service: ParcelsService) {}
+  constructor(private service: ParcelsService,private store: Store<ParcelState>, private  route:ActivatedRoute) {}
+  parcels$=this.store.select(getParcels)
 id!:number
 
   markerPositions: google.maps.LatLngLiteral[] = [
@@ -15,16 +21,20 @@ id!:number
   ];
 
   ngOnInit(): void {
-  this.showmap(this.id)
-
-
+    this.route.params.subscribe((param)=>{
+      this.id=+param['id']
+    })
+    this.store.dispatch(Actions.ParcelId({id:this.id}))
+this.showmap()
   }
-  showmap(id:number){
-    this.service.getParcelDetails(id).subscribe((res) => {
-      const coordinates = res.map((parcel) => ({
-        lat: parcel.lat,  
+  showmap(){
+    this.store.select(getParcels).subscribe(res=>{
+        let parcel = res.filter(parcel=>parcel.id==this.id)
+      const coordinates = parcel.map((parcel) => ({
+        lat: parcel.lat,
         lng: parcel.lng,
       }));
+console.log(coordinates);
 
       this.markerPositions =  coordinates.concat([
         {

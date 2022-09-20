@@ -23,7 +23,7 @@ onsignup(){
 }
 onSubmit() {
   if(this.form.valid){
-    console.log(this.form.valid);
+    // console.log(this.form.valid);
 
     this.service.loginUser(this.form.value).subscribe(response=>{
       localStorage.setItem('token', response.token)

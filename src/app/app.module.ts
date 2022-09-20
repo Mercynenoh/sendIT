@@ -17,6 +17,8 @@ import { environment } from '../environments/environment';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+
 
 export function playerFactory(): any {
   return player
@@ -36,7 +38,9 @@ export function playerFactory(): any {
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-   [ LottieModule.forRoot({ player: playerFactory }),]
+   [ LottieModule.forRoot({ player: playerFactory }),],
+   GooglePlaceModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

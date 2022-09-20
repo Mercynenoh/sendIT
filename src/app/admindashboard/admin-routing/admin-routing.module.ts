@@ -11,7 +11,8 @@ const routes: Routes = [
   {path:'', canActivateChild:[AuthGuard],children:[
     {path:'', component:AdminComponent},
     {path:'admindetails/:id', component:AdminDetailsComponent},
-    {path:'addnew', component:NewparcelComponent}
+    {path:'addnew', component:NewparcelComponent},
+    {path:'addnew/:id', component:NewparcelComponent}
   ]}
 ];
 

@@ -14,6 +14,8 @@ export class AdminDetailsComponent implements OnInit {
 
   constructor( private router:Router,private route:ActivatedRoute, private service:ParcelsService,private store :Store<ParcelState> ) { }
   id!:number
+  error="Parcel Updated as delivered"
+  parceldelivered=false
   parcel$=this.store.select(getParcel)
   ngOnInit(): void {
     this.route.params.subscribe((param)=>{
@@ -24,5 +26,16 @@ export class AdminDetailsComponent implements OnInit {
 goback(){
 this.router.navigate(['admin'])
 }
+
+delivered(id:number){
+  this.service.updateDelivered(id).subscribe(res=>{
+    this.parceldelivered=false
+  })
+}
+onClose(){
+  this.parceldelivered=true
+}
+
+
 
 }

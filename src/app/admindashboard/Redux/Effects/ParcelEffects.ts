@@ -25,7 +25,7 @@ export class ParcelEffectsService {
     return this.actions.pipe(
       ofType(ParcelsActions.addParcel),
       mergeMap(action=> this.service.addParcel(action.newProduct).pipe(
-        map(res=>ParcelsActions.addParcelSuccess({addMessage:res.message})),
+        map(res=>ParcelsActions.addParcelSuccess({addMessage:res.parcelname})),
         catchError(error=>of(ParcelsActions.addParcelFailure({error:error.message})))
       ))
     )

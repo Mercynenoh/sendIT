@@ -12,8 +12,8 @@ export class ParcelsService {
 
   constructor( private http:HttpClient) {
   }
-  addParcel(result:parcel):Observable<{message:string}>{
-    return this.http.post<{message:string}>(this.baseUrl+'/add', result)
+  addParcel(result:parcel){
+    return this.http.post<parcel>(this.baseUrl+'/add', result)
   }
   showParcel():Observable<parcel[]>{
     return this.http.get<parcel[]>(this.baseUrl+'/get')
@@ -22,9 +22,15 @@ export class ParcelsService {
     return this.http.get<parcel[]>(`${this.baseUrl}/${id}`)
   }
   deleteParcel(id:number): Observable <{message:string}>{
-    return this.http.delete<{message:string}>(`${this.baseUrl}/${id}`)
+    return this.http.delete<{message:string}>(`${this.baseUrl}/delete/${id}`)
+  }
+  updateDelivered(id:number): Observable <{message:string}>{
+    return this.http.get<{message:string}>(`${this.baseUrl}/update/${id}`)
   }
   getmyParcel(Senderemail:string): Observable<parcel[]>{
     return this.http.get<parcel[]>(`${this.baseUrl}/${Senderemail}`)
+  }
+  updateparcel(id:number,data:parcel): Observable <any>{
+    return this.http.put<any>(`${this.baseUrl}/edit/${id}`,data)
   }
 }

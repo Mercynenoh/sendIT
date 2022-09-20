@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { parcel } from 'src/app/Interfaces/parces';
 import { ParcelsService } from 'src/app/Services/parcels.service';
 import { getParcels, ParcelState } from '../Redux/Reducers/ParcelReducers';
 import * as Actions from '../Redux/Actions/ParcelActions'
-import { Observable, timeout } from 'rxjs';
+import { first, Observable, timeout } from 'rxjs';
 import { Userr } from 'src/app/Interfaces/user';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-newparcel',
@@ -18,11 +19,22 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class NewparcelComponent implements OnInit {
   regSuccess=true
   error="Inputs Required"
-  constructor(private router:Router, private fb:FormBuilder, private service:AuthService,private parcel:ParcelsService, private store:Store<ParcelState>) { }
+  address: string = '';
+  latitude!: number;
+  longitude!: number;
+  id!: number;
+  isAddMode!: boolean;
+  loading = false;
+  submitted = false;
+
+
+  constructor(private router:Router, private fb:FormBuilder, private route: ActivatedRoute, private service:AuthService,private parcel:ParcelsService, private store:Store<ParcelState>) { }
   addForm!: FormGroup;
   user$:Observable<Userr[]>=new Observable()
   parcel$:Observable<parcel[]>=new Observable()
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+        this.isAddMode = !this.id;
     this.onget()
     this.onParcel()
     this.getLocation()
@@ -44,7 +56,35 @@ export class NewparcelComponent implements OnInit {
 
       this.addForm.get('Price')!.setValue(res*23)
     });
+
+    if(!this.isAddMode){
+      this.parcel.getParcelDetails(this.id).pipe(first())
+      .subscribe(parcel => {
+         let editParcel = parcel.find(el=>el)
+        console.log(parcel);
+        if(editParcel){
+          this.addForm.patchValue({
+          Adress:editParcel.Adress,
+          Senderemail:editParcel.Senderemail,
+          RecepientEmail:editParcel.RecepientEmail,
+          parcelname: editParcel.parcelname,
+          weight: editParcel.weight,
+          Date: editParcel.Date,
+          lat: editParcel.lat,
+          lng: editParcel.lng,
+          TruckNo: editParcel.TruckNo,
+          TrackingNo:editParcel.TrackingNo,
+          Price: editParcel.Price
+          })
+
+        }
+      })
+    }
+
+
   }
+
+
   callApi(Longitude:number, Latitude:number){
 
     const url = `https://api-adresse.data.gouv.fr/reverse/?lon=${Longitude}%lat=${Latitude}`
@@ -56,15 +96,15 @@ export class NewparcelComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position)=>{
         const longitude = position.coords.longitude;
         const latitude = position.coords.latitude;
-        console.log(longitude,latitude)
         this.addForm.get('lat')?.setValue(latitude)
         this.addForm.get('lng')?.setValue(longitude)
+        // this.addForm.get('Adress')?.setValue(this.address)
         this.callApi(longitude, latitude);
       });
 
     }else{
 
-      console.log('no support for geolocation')
+      console.log('no such location')
 
     }
 
@@ -82,25 +122,47 @@ this.router.navigate(['admin'])
 onClose(){
   this.regSuccess=true
   }
-addnewParcel(){
 
+
+addnewParcel(){
 
   const newProduct:parcel={...this.addForm.value}
   this.store.dispatch(Actions.addParcel({newProduct}))
   this.store.dispatch(Actions.LoadParcels())
   this.router.navigate(['admin'])
-   console.log();
-   if(this.addForm.valid){
-  }else{
-    this.regSuccess=false
-  }
-    this.regSuccess=true
-}
+
+ }
 onget(){
   this.user$= this.service.showUsers()
  }
  onParcel(){
   this.parcel$=this.parcel.showParcel()
  }
+
+
+  handleAddressChange(address: any) {
+    this.address = address.formatted_address;
+    this.latitude = address.geometry.location.lat();
+    this.longitude = address.geometry.location.lng();
+
+  }
+
+  updateParcel() {
+  this.parcel.updateparcel(this.id,this.addForm.value).subscribe(res=>{
+    this.store.dispatch(Actions.LoadParcels())
+    this.router.navigate(['admin'])
+  })
+}
+
+onSubmit() {
+  this.submitted = true;
+
+  this.loading = true;
+  if (this.isAddMode) {
+      this.addnewParcel();
+  } else {
+      this.updateParcel();
+  }
+}
 }
 

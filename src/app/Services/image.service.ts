@@ -23,10 +23,10 @@ export class ImageService {
 
     return this.http.post('/api/v1/image-upload', formData);
   }
-  addimage(result:image): Observable <{message:string}>{
-    return this.http.post<{message:string}>(`${this.baseUrl}/add`,result)
+  addimage(id:number): Observable <{message:string}>{
+    return this.http.get<{message:string}>(`${this.baseUrl}/get`)
   }
-  seeimage():Observable<image[]>{
-    return this.http.get<image[]>(this.baseUrl+'/profiles')
+  seeimage(id:number): Observable<Userr[]>{
+    return this.http.get<Userr[]>(`${this.baseUrl}/all/${id}`)
   }
 }

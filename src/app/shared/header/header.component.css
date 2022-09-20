@@ -13,13 +13,15 @@
   color: white;
   border-radius: 5px;
   width: 70px;
+  height:35px;
   border: none;
+  font-size: 13px;
 }
 button:hover{
   background-color: white;
   color:#F68B1E;
   width: 65px;
-  height:25px;
+  height:30px;
 
 }
 .all{

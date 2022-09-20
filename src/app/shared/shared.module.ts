@@ -6,6 +6,7 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ErrorComponent } from './error/error.component';
 import { CustomDirective } from './Directives/custom.directive'
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 
@@ -20,7 +21,8 @@ import { CustomDirective } from './Directives/custom.directive'
   ],
   imports: [
     CommonModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    GooglePlaceModule
   ],
  exports:[
   HeaderComponent,

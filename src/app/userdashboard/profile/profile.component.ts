@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { image, ImageService } from 'src/app/Services/image.service';
 
 class ImageSnippet {
-  constructor(public src: string, public file: File) {}
+  constructor(public Profile:Userr, public file: File) {}
 }
 
 @Component({
@@ -19,10 +19,9 @@ export class ProfileComponent implements OnInit {
   addForms!:FormGroup
   percentDone!: number;
   uploadSuccess!: boolean;
-  profile:image[]=[]
+  profile:Userr[]=[]
 
   ngOnInit(): void {
-    this.getProfiles()
     this.addForms = this.fb.group({
       image:[null],
     });
@@ -50,14 +49,14 @@ export class ProfileComponent implements OnInit {
 
     reader.readAsDataURL(file);
   }
-  onadd(){
- this.imageService.addimage(this.addForms.value).subscribe(res=>{
+  onadd(id:number){
+ this.imageService.addimage(id).subscribe(res=>{
   console.log(this.addForms.value);
 
  })
   }
-  getProfiles(){
-   this.imageService.seeimage().subscribe(res=>{
+  getProfiles(id:number){
+   this.imageService.seeimage(id).subscribe(res=>{
     this.profile=res
    })
   }

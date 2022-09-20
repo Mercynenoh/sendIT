@@ -1,5 +1,5 @@
 <div class="main">
-<form [formGroup]="addForms" (ngSubmit)="onadd()">
+<form [formGroup]="addForms" >
 <label class="image-upload-container btn btn-bwm">
   <span>Select Image</span>
   <input #imageInput
@@ -13,8 +13,9 @@
 </form>
 
 <div class="display" *ngFor="let item of profile">
-  <img [src]=item.image/>
-  <p>{{item.Bio}}</p>
+  <button type="submit" class="btn btn-info" (click)="getProfiles(item.id)">Add</button>
+  <img [src]=item.Profile/>
+
 
 </div>
 </div>

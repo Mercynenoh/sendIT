@@ -1,12 +1,13 @@
 <div class="main">
   <div class="left">
 <div class="buttons ">
-  <button class="btn m-4" (click)="onCreate()">Create request</button>
+  <h3 (click)="onCreate()">Create Request</h3>
+   <h3 (click)="onNotify()">Notifications</h3>
 </div>
   </div>
   <div class="right">
     <input placeholder="Search by tracking No." class="m-2" [(ngModel)]="filter">
-    <h3 class="text-black"> All Parcels</h3>
+    <h2 class="text-black"> All Parcels</h2>
     <table *ngIf="parcels$| async  as parcels">
       <tr>
       <th>Id</th>
@@ -15,12 +16,10 @@
       <th class="new">Sent By</th>
       <th class="new">Sent To</th>
       <th class="new">Parcel Name</th>
-      <th class="new">Truck No.</th>
-      <th class="new">Weight</th>
       <th class="new">Status</th>
       <th class="new">Date</th>
-      <th class="new">Price</th>
       <th>Details</th>
+      <th></th>
       <th></th>
     </tr>
       <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}">
@@ -30,14 +29,50 @@
         <td class="new">{{parcel.Senderemail}}</td>
         <td class="new">{{parcel.RecepientEmail}}</td>
         <td class="new">{{parcel.parcelname}}</td>
-        <td class="new">{{parcel.TruckNo}}</td>
-        <td class="new">{{parcel.weight}}g</td>
         <td class="new">{{parcel.status}}</td>
         <td class="new">{{parcel.Date}}</td>
-        <td class="new">{{parcel.Price | currency:'Ksh.'}}</td>
-        <td><button class="button" (click)="onview(parcel.id)">View</button></td>
-        <td><button class="button"(click)="onDelete(parcel.id)" >Delete</button></td>
+        <td> <ion-icon name="eye-outline" (click)="onview(parcel.id)"></ion-icon></td>
+        <td><ion-icon name="trash-outline" (click)="onDelete(parcel.id)"></ion-icon> </td>
+        <td><ion-icon name="create-outline" (click)="onupdate(parcel.id)"></ion-icon></td>
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    <div class="extra" *ngIf="parcels$| async  as parcels">
+    <div class="card  text-black" *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}" >
+      <h4>Parcel Details</h4>
+    <p>Parcel Name:<span> {{parcel.Adress}}</span></p>
+    <p>Sent From: <span>{{parcel.TrackingNo}}</span></p>
+    <p>Sent To:<span> {{parcel.Senderemail}}</span></p>
+    <p>Date Sent:<span>{{parcel.RecepientEmail}}</span> </p>
+    <p>Truck No: <span>{{parcel.parcelname}}</span></p>
+    <p>Adress:  <span>{{parcel.status}}</span></p>
+    <p>Weight  <span>{{parcel.Date}}</span></p>
+    <div class="buttons">
+    <button class="button" (click)="onview(parcel.id)">View</button>
+    <button class="button"(click)="onDelete(parcel.id)" >Delete</button>
+    <button class="button" (click)="onupdate(parcel.id)">Update</button>
   </div>
+    </div>
+    </div>
+    <div class="extra" *ngIf="parcels$| async  as parcels">
+      <div class="card  text-black" *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}" >
+      <p>Parcel Name:<span> {{parcel.Adress}}</span></p>
+      <p>Sent From: <span>{{parcel.TrackingNo}}</span></p>
+      <p>Sent To:<span> {{parcel.Senderemail}}</span></p>
+      <p>Date Sent:<span>{{parcel.RecepientEmail}}</span> </p>
+      <p>Truck No: <span>{{parcel.parcelname}}</span></p>
+      <p>Adress:  <span>{{parcel.status}}</span></p>
+      <p>Weight  <span>{{parcel.Date}}</span></p>
+      <div class="buttons">
+
+      <button class="button" (click)="onview(parcel.id)">View</button>
+      <button class="button"(click)="onDelete(parcel.id)" >Delete</button>
+      <button class="button" (click)="onupdate(parcel.id)">Update</button>
+    </div>
+      </div>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+  </div>
+
 </div>

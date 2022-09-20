@@ -13,6 +13,8 @@ import { SearchPipe } from './Pipes/search.pipe';
 import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
 import { ParcelEffectsService } from './Redux/Effects/ParcelEffects';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -31,7 +33,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     StoreModule.forFeature('parcels', ParcelReducer),
     EffectsModule.forFeature([ParcelEffectsService]),
-    NgxPaginationModule
+    NgxPaginationModule,
+    GooglePlaceModule,
+    IonicModule.forRoot()
   ]
 })
 export class AdmindashboardModule { }

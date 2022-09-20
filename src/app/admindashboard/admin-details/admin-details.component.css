@@ -5,12 +5,13 @@
   height: 90vh;
 }
 .card{
-height: 300px;
-width: 250px;
+height: 80%;
+width: auto;
 background-color: white;
 box-shadow: 2px 2px 2px 2px black;
 margin-top: 5%;
 margin-left: 5%;
+padding: 10px;
 }
 h3{
   font-size: 15px;

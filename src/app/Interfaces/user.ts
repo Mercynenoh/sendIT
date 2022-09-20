@@ -3,6 +3,7 @@ export interface Userr{
   Lastname:string
   Senderemail:string
   Password:string
+  Profile:string
   role:string
   issent:string
   id:number
