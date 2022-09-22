@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SentComponent } from './sent/sent.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     StoreModule.forFeature('parcels', ParcelReducer),
     EffectsModule.forFeature([ParcelEffectsService]),
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicModule.forRoot()
 
   ]
 })

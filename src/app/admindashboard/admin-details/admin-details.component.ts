@@ -18,6 +18,8 @@ export class AdminDetailsComponent implements OnInit {
   parceldelivered=false
   parcel$=this.store.select(getParcel)
   ngOnInit(): void {
+    this.parcel$
+    this.store.select(getParcels)
     this.route.params.subscribe((param)=>{
       this.id=+param['id']
     })
@@ -30,6 +32,8 @@ this.router.navigate(['admin'])
 delivered(id:number){
   this.service.updateDelivered(id).subscribe(res=>{
     this.parceldelivered=false
+    this.router.navigate(['admin'])
+
   })
 }
 onClose(){

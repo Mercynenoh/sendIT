@@ -34,7 +34,6 @@ this.showmap()
         lat: parcel.lat,
         lng: parcel.lng,
       }));
-console.log(coordinates);
 
       this.markerPositions =  coordinates.concat([
         {

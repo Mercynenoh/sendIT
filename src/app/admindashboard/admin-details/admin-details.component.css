@@ -31,6 +31,12 @@ span{
   font-size: 12px;
   font-weight: 400;
 }
+.button:hover{
+  color:white;
+  background-color: black;
+  width: 70px;
+
+}
 h4{
   font-weight: 700;
   color: #F68B1E;

@@ -6,22 +6,22 @@
     <table *ngIf="parcel$| async as parcel">
       <tr>
       <th>id</th>
-      <th>Tracking No</th>
-      <th>Adress</th>
+      <th >Tracking No</th>
+      <th class="remove">Adress</th>
       <th>Parcel Name</th>
-      <th>From</th>
-      <th>Price</th>
+      <th class="remove">From</th>
+      <th class="remove">Price</th>
       <th>Details</th>
-
     </tr>
+    <h1 *ngIf="parcel.length===0"> No parcels Received</h1>
       <tr *ngFor="let item of parcel |paginate :{itemsPerPage:5,currentPage:p}">
         <td>{{item.id}}</td>
-        <td>{{item.TrackingNo}}</td>
-        <td>{{item.Adress}}</td>
+        <td >{{item.TrackingNo}}</td>
+        <td class="remove">{{item.Adress}}</td>
         <td>{{item.parcelname}}</td>
-        <td>{{item.Senderemail}}</td>
-        <td>{{item.Price | currency:'Ksh.'}}</td>
-        <td><button class="button" (click)="onview(item.id)" >View</button></td>
+        <td class="remove">{{item.Senderemail}}</td>
+        <td  class="remove">{{item.Price | currency:'Ksh.'}}</td>
+        <td><ion-icon name="eye-outline" (click)="onview(item.id)" class="view"></ion-icon></td>
       </tr>
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -30,5 +30,18 @@
    <app-sent></app-sent>
   </div>
   </div>
+  <div class="right">
+
+  </div>
+<div class="notify" >
+  <h3>Notifications</h3>
+  <div  *ngFor="let item of notification" class="check">
+    <p class="receivednotify">{{item.message}}</p>
+  <ion-icon name="close-outline" (click)="removenotification(item.id)"></ion-icon>
+  </div>
+  <p *ngIf="notification.length==0">No notifications</p>
 
 </div>
+
+</div>
+

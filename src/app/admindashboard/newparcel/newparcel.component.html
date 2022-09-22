@@ -16,6 +16,7 @@
   <div>
     <label class="form-label" for="form8Example1">Sender email</label><br>
     <select formControlName="Senderemail" class="form-control">
+      <option value='' [disabled] [selected]>Senderemail</option>
       <option *ngFor="let item of user$ | async" value={{item.Senderemail}} >{{item.Senderemail}}</option>
     </select>
     <p *ngIf="!addForm.get('Senderemail')!.valid && addForm.get('Senderemail')!.touched">
@@ -24,7 +25,9 @@
   </div>
   <div>
     <label class="form-label" for="form8Example1">Recipient email</label>
-    <input type="email" formControlName="RecepientEmail"class="form-control" />
+    <select formControlName="RecepientEmail" class="form-control">
+      <option *ngFor="let item of user$ | async" value={{item.Senderemail}} >{{item.Senderemail}}</option>
+    </select>
     <p *ngIf="!addForm.get('RecepientEmail')!.valid && addForm.get('RecepientEmail')!.touched">
       Input required
      </p>
@@ -74,7 +77,8 @@
        </p>
     </div>
     <div>
-    <button class="btn m-3" type="submit" type="submit" >Create</button>
+    <button class="btn m-3" type="submit" type="submit" [disabled]="!addForm.valid" *ngIf="isAddMode" >Create</button>
+    <button class="btn m-3" type="submit" type="submit" [disabled]="!addForm.valid" *ngIf="!isAddMode" >Update</button>
       </div>
   </div>
 

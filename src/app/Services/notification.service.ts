@@ -16,4 +16,11 @@ export class NotificationService {
   getall():Observable<Notify[]>{
     return this.http.get<Notify[]>(this.baseUrl)
   }
+  deleteNotification(id:number): Observable <Notify[]>{
+    return this.http.delete<Notify[]>(`${this.baseUrl}/${id}`)
+  }
+
+  getOneNotification(email:String){
+    return this.http.post<Notify[]>(this.baseUrl+'/one', email)
+  }
 }

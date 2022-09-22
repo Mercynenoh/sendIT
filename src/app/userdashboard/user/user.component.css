@@ -1,11 +1,12 @@
 .main{
   display: flex;
   height: 150vh;
+  justify-content: space-between;
 }
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 80vw;
+  width: 70vw;
 }
 
 td, th {
@@ -51,6 +52,36 @@ button{
   margin: 5px;
   border: none;
 }
+.receivednotify{
+  background-color: black;
+  height:auto;
+  width:150px;
+  color:white;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+.notify{
+  position: fixed;
+  overflow-y: scroll;
+  position: absolute;
+  right: 0;
+}
+.check{
+display:flex;
+}
+.view{
+  color: #F68B1E;
+  font-size: 30px;
+}
+ion-icon{
+  color: red;
+  font-size: 25px;
+}
+ion-icon:hover{
+  color: black;
+  font-size: 30px;
+}
 @media screen and (max-width: 500px){
   .main{
     display: flex;
@@ -58,4 +89,63 @@ button{
   }
 
 }
+@media screen and (max-width: 376px){
+  .remove{
+    display: none;
+  }
+}
+@media screen and (max-width: 415px){
+  .remove{
+    display: none;
+  }
+}
+@media screen and (max-width: 821px){
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 914px){
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 541px){
+  .remove{
+    display: none;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 1025px){
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1281px){
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 25px;
+  }
+}
+
+
 

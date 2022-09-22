@@ -17,8 +17,8 @@ export class AuthService {
     };
   }
 
-  registerUser(data: Userr) {
-    return this.http.post<Userr>(this.baseUrl + '/signup', data);
+  registerUser(data: Userr):Observable<{message:string}> {
+    return this.http.post<{message:string}>(this.baseUrl + '/signup', data);
   }
 
   loginUser(data:loginuser): Observable<any>{
