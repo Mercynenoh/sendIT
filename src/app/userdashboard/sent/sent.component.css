@@ -59,7 +59,7 @@ button{
   align-items: center;
 }
 ion-icon{
-  color: white;
+  color: #F68B1E;
   font-size: 25px;
 }
 ion-icon:hover{
@@ -80,6 +80,12 @@ ion-icon:hover{
   table{
     width: 70vw;
   }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 10px;
+  }
 }
 @media screen and (max-width: 415px){
   .remove{
@@ -92,7 +98,7 @@ ion-icon:hover{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 914px){
@@ -115,7 +121,18 @@ ion-icon:hover{
     font-size: 22px;
   }
 }
-@media screen and (max-width: 1025px){
+@media screen and (max-width: 281px){
+  .remove{
+    display: none;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    font-size: 9px;
+  }
+}
+/* @media screen and (max-width: 1025px){
 
   td, th {
     border: 1px solid #dddddd;
@@ -132,4 +149,4 @@ ion-icon:hover{
     padding: 8px;
     font-size: 25px;
   }
-}
+} */

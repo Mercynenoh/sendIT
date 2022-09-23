@@ -38,4 +38,9 @@ em{
   padding: 5px;
 }
 
+@media screen and (max-width: 1200px){
+  .all{
+    display: none;
+  }
+}
 

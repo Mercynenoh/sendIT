@@ -1,6 +1,6 @@
 .main{
-  justify-content: space-around;
   display: flex;
+  justify-content: center;
 }
 .card{
 height: 300px;
@@ -9,6 +9,7 @@ background-color: white;
 box-shadow: 2px 2px 2px 2px black;
 margin-top: 5%;
 margin-left: 5%;
+justify-content: center;
 }
 h3{
   font-size: 15px;
