@@ -13,24 +13,67 @@ export class ParcelsService {
   constructor( private http:HttpClient) {
   }
   addParcel(result:parcel){
-    return this.http.post<parcel>(this.baseUrl+'/add', result)
+    const token = localStorage.getItem('token') as string;
+    return this.http.post<parcel>(this.baseUrl+'/add', result,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    })
+
   }
   showParcel():Observable<parcel[]>{
-    return this.http.get<parcel[]>(this.baseUrl+'/get')
+    const token = localStorage.getItem('token') as string;
+    return this.http.get<parcel[]>(this.baseUrl+'/get',
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    })
   }
   getParcelDetails(id:number): Observable<parcel[]>{
-    return this.http.get<parcel[]>(`${this.baseUrl}/${id}`)
+    const token = localStorage.getItem('token') as string;
+    return this.http.get<parcel[]>(`${this.baseUrl}/${id}`,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    })
   }
   deleteParcel(id:number): Observable <{message:string}>{
-    return this.http.delete<{message:string}>(`${this.baseUrl}/delete/${id}`)
+    const token = localStorage.getItem('token') as string;
+    return this.http.delete<{message:string}>(`${this.baseUrl}/delete/${id}`,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    })
   }
   updateDelivered(id:number): Observable <{message:string}>{
-    return this.http.get<{message:string}>(`${this.baseUrl}/update/${id}`)
+    const token = localStorage.getItem('token') as string;
+    return this.http.get<{message:string}>(`${this.baseUrl}/update/${id}`,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    }   )
   }
   getmyParcel(Senderemail:string): Observable<parcel[]>{
-    return this.http.get<parcel[]>(`${this.baseUrl}/${Senderemail}`)
+    const token = localStorage.getItem('token') as string;
+    return this.http.get<parcel[]>(`${this.baseUrl}/${Senderemail}`,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    } )
   }
   updateparcel(id:number,data:parcel): Observable <any>{
-    return this.http.put<any>(`${this.baseUrl}/edit/${id}`,data)
+    const token = localStorage.getItem('token') as string;
+    return this.http.put<any>(`${this.baseUrl}/edit/${id}`,data,
+    {
+
+      headers: new HttpHeaders({ token}),
+
+    })
   }
 }

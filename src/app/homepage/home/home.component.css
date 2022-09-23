@@ -49,6 +49,7 @@ h2{
 .btn{
   background-color:#F68B1E;
   color: white;
+  height:50px;
 }
 .middle{
   justify-content: center;
@@ -169,4 +170,20 @@ button{
     display: flex;
     flex-direction: column;
   }
+}
+@media screen and (max-width: 285px){
+.paragraph{
+margin-right: 6%;
+font-size: 11px;
+padding-right: 9%;
+}
+.two{
+  font-size: 11px;
+  margin-right: 9%;
+}
+.text-white{
+  padding-right: 7%;
+  justify-content: center;
+  display: flex;
+}
 }

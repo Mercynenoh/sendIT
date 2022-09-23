@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('form') form!:NgForm
-  logged=false
-  error='Empty Fields!!!'
+  logged=true
+  error!:string
   constructor( private router:Router, private service:AuthService) {
    }
 
@@ -23,9 +23,8 @@ onsignup(){
 }
 onSubmit() {
   if(this.form.valid){
-    // console.log(this.form.valid);
-
-    this.service.loginUser(this.form.value).subscribe(response=>{
+    this.service.loginUser(this.form.value).subscribe({next:
+      (response)=>{
       localStorage.setItem('token', response.token)
       localStorage.setItem('Senderemail', response.user.Senderemail)
       localStorage.setItem('role', response.user.role)
@@ -35,14 +34,29 @@ onSubmit() {
       }else{
         this.router.navigate(['user'])
       }
-
+    },
+    error: (error) => {
+        console.log(error.error.message);
+        this.error=error.error.message
+        this.logged = false;
+      },
     })
-
-  }else{
-    this.logged=true
   }
 }
  onClose(){
-this.logged=false
+this.logged=true
 }
 }
+// next: (response) => {
+//   console.log(response);
+
+//   this.regSuccess = true;
+//   if (this.regSuccess) {
+//     this.router.navigate(['auth/login']);
+//   }
+// },
+// error: (error) => {
+//   console.log(error.error.message);
+//   this.errResponse=error.error.message
+//   this.regSuccess = false;
+// },

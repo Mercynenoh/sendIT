@@ -1,10 +1,37 @@
 <div class="main">
+
+  <ion-icon name="menu-outline" class="menu" (click)="openclose()"></ion-icon>
   <div class="left">
 <div class="buttons ">
+  <h4 class="text-black">ADMIN'S CORNER</h4>
+  <div class="addall">
   <h3 (click)="onCreate()">Create Request</h3>
+  <ion-icon class="add" name="add-outline" (click)="onCreate()"></ion-icon>
+</div>
+<div class="addall">
+  <ion-icon name="happy" class="add"></ion-icon>
+  <h3 (click)="onfilter('Delivered')">Delivered Parcels </h3>
+</div>
+<div class="addall">
+  <ion-icon name="sad" class="add"></ion-icon>
+  <h3 (click)="onfilter('Pending')">Pending Parcels</h3>
+</div>
+<div class="addall">
+   <ion-icon class="add" name="notifications-outline"></ion-icon>
    <h3 (click)="onNotify()">Notifications</h3>
+   </div>
+   <div class="fixed">
+<div *ngFor="let item of notification" class="notification">
+    <p class="notify" >{{item.message}}</p>
+    <ion-icon name="close-outline" class="add" (click)="removenotification(item.id)"></ion-icon>
+  </div>
+</div>
+  <div class="Empty" *ngIf="notification.length===0">
+    <p class="notify" >No Notifications</p>
+  </div>
 </div>
   </div>
+
   <div class="right">
     <input placeholder="Search by tracking No." class="m-2" [(ngModel)]="filter">
     <h2 class="text-black"> All Parcels</h2>
@@ -12,23 +39,19 @@
       <tr>
       <th>Id</th>
       <th class="new">Destination</th>
-      <th>Tracking No.</th>
-      <th class="new">Sent By</th>
-      <th class="new">Sent To</th>
-      <th class="new">Parcel Name</th>
+      <th class="new">Tracking No.</th>
+      <th class="old">Parcel Name</th>
       <th class="new">Status</th>
       <th class="new">Date</th>
       <th>Details</th>
       <th></th>
       <th></th>
     </tr>
-      <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}">
+      <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:9,currentPage:p}">
         <td>{{parcel.id}}</td>
         <td class="new">{{parcel.Adress}}</td>
-        <td>{{parcel.TrackingNo}}</td>
-        <td class="new">{{parcel.Senderemail}}</td>
-        <td class="new">{{parcel.RecepientEmail}}</td>
-        <td class="new">{{parcel.parcelname}}</td>
+        <td class="new">{{parcel.TrackingNo}}</td>
+        <td class="old">{{parcel.parcelname}}</td>
         <td class="new">{{parcel.status}}</td>
         <td class="new">{{parcel.Date}}</td>
         <td> <ion-icon name="eye-outline" (click)="onview(parcel.id)"></ion-icon></td>
@@ -37,42 +60,23 @@
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-    <div class="extra" *ngIf="parcels$| async  as parcels">
-    <div class="card  text-black" *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}" >
-      <h4>Parcel Details</h4>
-    <p>Parcel Name:<span> {{parcel.Adress}}</span></p>
-    <p>Sent From: <span>{{parcel.TrackingNo}}</span></p>
-    <p>Sent To:<span> {{parcel.Senderemail}}</span></p>
-    <p>Date Sent:<span>{{parcel.RecepientEmail}}</span> </p>
-    <p>Truck No: <span>{{parcel.parcelname}}</span></p>
-    <p>Adress:  <span>{{parcel.status}}</span></p>
-    <p>Weight  <span>{{parcel.Date}}</span></p>
-    <div class="buttons">
-    <button class="button" (click)="onview(parcel.id)">View</button>
-    <button class="button"(click)="onDelete(parcel.id)" >Delete</button>
-    <button class="button" (click)="onupdate(parcel.id)">Update</button>
-  </div>
-    </div>
-    </div>
-    <div class="extra" *ngIf="parcels$| async  as parcels">
-      <div class="card  text-black" *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:5,currentPage:p}" >
-      <p>Parcel Name:<span> {{parcel.Adress}}</span></p>
-      <p>Sent From: <span>{{parcel.TrackingNo}}</span></p>
-      <p>Sent To:<span> {{parcel.Senderemail}}</span></p>
-      <p>Date Sent:<span>{{parcel.RecepientEmail}}</span> </p>
-      <p>Truck No: <span>{{parcel.parcelname}}</span></p>
-      <p>Adress:  <span>{{parcel.status}}</span></p>
-      <p>Weight  <span>{{parcel.Date}}</span></p>
-      <div class="buttons">
-
-      <button class="button" (click)="onview(parcel.id)">View</button>
-      <button class="button"(click)="onDelete(parcel.id)" >Delete</button>
-      <button class="button" (click)="onupdate(parcel.id)">Update</button>
-    </div>
+    <div class="left-collapse" *ngIf="open">
+      <div class="buttons ">
+        <div class="addall">
+        <h3 (click)="onCreate()">Create Request</h3>
+        <ion-icon class="add" name="add-outline" (click)="onCreate()"></ion-icon>
       </div>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <div class="addall">
+         <ion-icon class="add" name="notifications-outline"></ion-icon>
+         <h3 (click)="onNotify()">Notifications</h3>
+         </div>
+         <div *ngFor="let item of notification" class="notification">
+          <p class="notify" >{{item.message}}</p>
+          <ion-icon name="close-outline" class="add" (click)="removenotification(item.id)"></ion-icon>
+        </div>
+        <h3 (click)="onfilter('Delivered')">Delivered</h3>
+   <h3 (click)="onfilter('Pending')">Pending</h3>
       </div>
-
-  </div>
+        </div>
 
 </div>

@@ -11,7 +11,10 @@
   <h3>Adress:  <span>{{parcel.Adress}}</span></h3>
   <h3>Weight  <span>{{parcel.weight}}g</span></h3>
   <h3>Status:  <span>{{parcel.status}}</span></h3>
-  <h3> Update Status: <button class="button" (click)="delivered(parcel.id)">Delivered</button></h3>
+  <h3> Update Status: <button
+    class="{{parcel.status === 'Pending' ? 'button':'new'}}"
+    [disabled]="parcel.status === 'Delivered' "
+    (click)="delivered(parcel.id)">Delivered</button></h3>
   </div>
   <div class="map m-2">
     <h2 class="text-black text-center">Track Parcel</h2>

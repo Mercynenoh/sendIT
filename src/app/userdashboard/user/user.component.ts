@@ -11,6 +11,8 @@ import * as Actions from '../../admindashboard/Redux/Actions/ParcelActions';
 import { Quotes, Weight } from 'src/app/Interfaces/Quotes';
 import { QuotesService } from 'src/app/Services/quotes.service';
 import { map } from 'rxjs';
+import { NotificationService } from 'src/app/Services/notification.service';
+import { Notify } from 'src/app/Interfaces/notification';
 
 @Component({
   selector: 'app-user',
@@ -21,19 +23,23 @@ export class UserComponent implements OnInit {
   parcel$ = this.store.select(getParcels);
   parcel2$ = this.store.select(getParcels);
   newquote: Quotes[] = [];
+  notification:Notify[]=[]
+  
   p: number = 0;
   constructor(
     private router: Router,
     private store: Store<ParcelState>,
     private route: ActivatedRoute,
     private quotesService: QuotesService,
-    private service: ParcelsService
+    private service: ParcelsService,
+    private notify:NotificationService
   ) {}
 
   ngOnInit(): void {
-    // const email = localStorage.getItem('email') ?? '';
+    this.allnotifications()
     this.showall();
     this.showmyParcels();
+    this.store.select(getParcels)
   }
   onview(id: number = 0) {
     this.store.dispatch(Actions.ParcelId({ id }));
@@ -54,5 +60,23 @@ export class UserComponent implements OnInit {
       })
     );
     return this.parcel$;
+  }
+
+
+  allnotifications(){
+this.notify.getall().subscribe(res=>{
+this.notification=res
+})
+  }
+  onNotify(){
+    this.notify.getall().subscribe(res=>{
+      })
+  }
+
+  removenotification(id:number){
+    this.notify.deleteNotification(id).subscribe(res=>{
+      this.onNotify()
+    })
+
   }
 }

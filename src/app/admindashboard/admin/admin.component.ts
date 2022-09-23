@@ -6,6 +6,8 @@ import { getParcels, ParcelState } from '../Redux/Reducers/ParcelReducers';
 import { Store } from '@ngrx/store';
 import * as Actions from '../Redux/Actions/ParcelActions'
 import { NotificationService } from 'src/app/Services/notification.service';
+import { Notify } from 'src/app/Interfaces/notification';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -17,11 +19,15 @@ export class AdminComponent implements OnInit {
 
   constructor( private router:Router,private route:ActivatedRoute, private service:ParcelsService, private store: Store<ParcelState>, private notify:NotificationService) { }
   parcels$=this.store.select(getParcels)
-  notification:[]=[]
+  parcels2$=this.store.select(getParcels)
+  notification:Notify[]=[]
   filter=''
   p:number=1
+  open=false
+
   ngOnInit(): void {
     this.showall()
+    this.onNotify()
   }
   onview(id:number=0){
     this.store.dispatch(Actions.ParcelId({id}))
@@ -49,8 +55,27 @@ onupdate(id:number=0){
 
 onNotify(){
 this.notify.getall().subscribe(res=>{
-  res=this.notification
-  console.log(res);
+  this.notification=res
 })
 }
+removenotification(id:number){
+  this.notify.deleteNotification(id).subscribe(res=>{
+    this.onNotify()
+  })
+}
+
+onfilter(status:string){
+  this.parcels$ = this.parcels2$.pipe(
+    map(res => {
+      let parcel=res.filter(parcel=>parcel.status==''?true:parcel.status==status||parcel.status=='')
+      return parcel;
+    })
+  );
+}
+
+openclose(){
+  this.open=!this.open
+}
+
+
 }

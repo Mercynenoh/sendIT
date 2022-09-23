@@ -2,7 +2,7 @@
   display:flex;
   gap: 5%;
   flex-wrap: wrap;
-  height:100vh;
+  height:auto;
   width: 100%;
 }
 .left{
@@ -10,18 +10,33 @@
   height:auto;
   background-color: #F68B1E;
   height:100vh;
+  overflow-y: scroll;
+  /* position: fixed; */
 }
+.menu{
+  color: #F68B1E;
+  margin: 20px;
+  font-size: 35px;
+  display: none;
+}
+.left-collapse{
+  position: absolute;
+  top:15%;
+  background-color: #F68B1E;
+  z-index: 999;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width:  50%;
+  width:  70vw;
 }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 9px;
-  font-size: 9px;
+   padding-left: 3px;
+  font-size: 12px;
 }
 
 tr:nth-child(even) {
@@ -30,15 +45,12 @@ tr:nth-child(even) {
 h3{
   height:40px;
   font-size: 15px;
-  width:100%;
   text-align: center;
   align-items: center;
   padding-top: 7%;
+  cursor: pointer;
 }
-h3:hover{
-  background-color: white;
-  color: black;
-}
+
 .btn{
   background-color: black;
   color: white;
@@ -61,7 +73,7 @@ h3:hover{
 } */
 .card{
   height: auto;
-  width: 250px;
+  width: 200px;
   background-color: white;
   box-shadow: 2px 2px 2px 2px black;
   margin-bottom: 3%;
@@ -76,7 +88,40 @@ h3:hover{
     color: #F68B1E;
   }
   ion-icon:hover{
-    color:black
+    color:black;
+    cursor: pointer;
+  }
+  .add{
+    color:white;
+    margin-top: 5%;
+    font-size: 25px;
+  }
+  .addall{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    justify-content: center;
+
+  }
+  .add:hover{
+    font-size: 30px;
+  }
+  h4{
+    text-align: center;
+    font-weight: 800;
+  }
+  .notify{
+    background-color: black;
+    color: white;
+    height:auto;
+    width: 180px;
+    font-size: 12px;
+    text-align: center;
+
+  }
+  .notification{
+    margin-left: 7%;
+    display:flex;
   }
 @media screen and (max-width: 1000px){
   .left{
@@ -96,9 +141,6 @@ h3:hover{
     width:60vh;
     font-size: 10px;
   }
-/* .new{
-  display: none;
-} */
 .button{
   background-color:#F68B1E;
   height: 20px;
@@ -110,5 +152,186 @@ h3:hover{
  input{
   width: 40vw;
  }
+ .menu{
+  display:block;
+ }
 
 }
+@media screen and (max-width: 376px){
+  .new{
+   display: none;
+    }
+    td, th{
+      padding: 2px;
+    }
+    .left{
+      display: none;
+    }
+    .menu{
+      display:block;
+     }
+}
+@media screen and (max-width: 415px){
+   .new{
+    display: none;
+     }
+     td,th{
+      padding-left: 0px;
+      padding-right: 0px;
+     }
+     table{
+      width: 90vw;
+      margin-left: 15px;
+     }
+     .text-black{
+      text-align: center;
+     }
+     .left{
+      display: none;
+    }
+    .menu{
+      display:block;
+     }
+}
+@media screen and (max-width: 821px){
+  td,th{
+font-size: 17px;
+   }
+   table{
+    width: 90vw;
+    margin-left: 15px;
+   }
+   .text-black{
+    text-align: center;
+   }
+   .left{
+    display: none;
+  }
+  .menu{
+    display:block;
+   }
+}
+@media screen and (max-width: 769px){
+  td,th{
+  font-size: 16px;
+   }
+   table{
+    width: 87vw;
+    margin-left: none;
+   }
+   .left{
+    display: none;
+  }
+  .menu{
+    display:block;
+   }
+
+}
+@media screen and (max-width: 913px){
+  td,th{
+  font-size: 22px;
+   }
+   table{
+    width: 87vw;
+    margin-left: none;
+   }
+   .left{
+    display: none;
+  }
+  .menu{
+    display:block;
+   }
+
+}
+@media screen and (max-width: 541px){
+ .new{
+  display: none;
+ }
+ td,th{
+  padding-right: 5px;
+ }
+ .left{
+  display: none;
+}
+.menu{
+  display:block;
+ }
+
+}
+@media screen and (max-width: 282px){
+  .new,.old{
+   display: none;
+  }
+  .left{
+    display: none;
+  }
+  .menu{
+    display:block;
+   }
+
+
+ }
+
+/* @media screen and (max-width: 550px){
+  .right{
+    display: none;
+  }
+  .signup{
+  height:400px;
+  width:300px;
+  left: 18%;
+  display: flex;
+  justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 376px){
+  .signup{
+    left: 9%;
+    }
+}
+@media screen and (max-width: 415px){
+  .signup{
+    left: 12%;
+    }
+}
+@media screen and (max-width: 361px){
+  .signup{
+    left: 8%;
+    }
+}
+
+@media screen and (max-width: 913px){
+  .signup{
+    left: 15%;
+    top:30%;
+    }
+}
+@media screen and (max-width: 541px){
+  .signup{
+    left: 20%;
+    }
+}
+
+@media screen and (max-width: 1282px){
+  .signup{
+    left: 25%;
+    }
+}
+@media screen and (max-width: 281px){
+  .signup{
+    left: 0;
+
+    }
+    .left{
+      width: 300px;
+    }
+    input{
+      width: 150px;
+      margin-left: 20%;
+      background-color: bisque;
+
+    }
+}
+ */

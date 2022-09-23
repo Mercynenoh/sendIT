@@ -1,5 +1,5 @@
 .main{
-  height: 100vh;
+  height:auto;
   background-color: black;
 }
 img{
@@ -13,7 +13,7 @@ img{
   width:600px;
   background-color: white;
   bottom: -40%;
-  left: 25%;
+  left: 20%;
   right: 0;
   top:20%;
   display: flex;
@@ -55,14 +55,80 @@ input{
 .p{
   color: red;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 550px){
   .right{
     display: none;
   }
   .signup{
   height:400px;
   width:300px;
-  left: 10%;
+  left: 18%;
+  display: flex;
+  justify-content: center;
   }
 
+}
+@media screen and (max-width: 376px){
+  .signup{
+    height:400px;
+    width:300px;
+    left: 9%;
+    }
+}
+@media screen and (max-width: 376px){
+  .signup{
+    left: 9%;
+    }
+}
+@media screen and (max-width: 415px){
+  .signup{
+    left: 12%;
+    }
+}
+@media screen and (max-width: 361px){
+  .signup{
+    left: 8%;
+    }
+}
+@media screen and (max-width: 821px){
+  .signup{
+    left: 12%;
+    top:30%;
+    }
+}
+@media screen and (max-width: 913px){
+  .signup{
+    left: 15%;
+    top:30%;
+    }
+}
+@media screen and (max-width: 541px){
+  .signup{
+    left: 20%;
+    }
+}
+@media screen and (max-width: 413px){
+  .signup{
+    left: 13%;
+    }
+}
+@media screen and (max-width: 1282px){
+  .signup{
+    left: 25%;
+    }
+}
+@media screen and (max-width: 281px){
+  .signup{
+    left: 0;
+
+    }
+    .left{
+      width: 300px;
+    }
+    input{
+      width: 150px;
+      margin-left: 20%;
+      background-color: bisque;
+
+    }
 }
