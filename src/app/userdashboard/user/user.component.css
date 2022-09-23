@@ -90,12 +90,18 @@ ion-icon:hover{
 
 }
 @media screen and (max-width: 376px){
-  .remove{
+  .remove,.notify{
     display: none;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 11px;
   }
 }
 @media screen and (max-width: 415px){
-  .remove{
+  .remove,.notify{
     display: none;
   }
 }
@@ -105,7 +111,10 @@ ion-icon:hover{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    font-size: 18px;
+    font-size: 12px;
+  }
+  table{
+    width: 60vh;
   }
 }
 @media screen and (max-width: 914px){
@@ -128,7 +137,7 @@ ion-icon:hover{
     font-size: 22px;
   }
 }
-@media screen and (max-width: 1025px){
+/* /* @media screen and (max-width: 1025]px){
 
   td, th {
     border: 1px solid #dddddd;
@@ -136,16 +145,17 @@ ion-icon:hover{
     padding: 8px;
     font-size: 25px;
   }
-}
-@media screen and (max-width: 1281px){
+} */
+@media screen and (max-width: 281px){
+  .remove{
+    display: none;
+  }
 
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
-    font-size: 25px;
+    font-size: 9px;
   }
 }
-
 
 

@@ -47,7 +47,6 @@
       <th></th>
       <th></th>
     </tr>
-    <p *ngIf="parcels.length==0">No notifications</p>
       <tr *ngFor="let parcel of parcels |search:filter| paginate :{itemsPerPage:9,currentPage:p}">
         <td>{{parcel.id}}</td>
         <td class="new">{{parcel.Adress}}</td>
